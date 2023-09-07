@@ -30,8 +30,8 @@ flutter_native_splash:
   android: true
   ios: true
 
-flutter_icons:
-  image_path: "assets/logo/icon_logo_dark.png"
+flutter_launcher_icons:
+  image_path: "assets/logo/icon_logo.png"
   color: "#0D1117"
   ios: true
   remove_alpha_ios: true

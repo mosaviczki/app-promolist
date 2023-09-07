@@ -4,14 +4,14 @@
             "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-9:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\moniq\\Downloads\\projeto_dispositivos_moveis\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
+                    "source": "C:\\src\\flutter-projects\\flutter\\promolist\\app\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
                     "from": {
                         "startLines": "3,15",
                         "startColumns": "4,4",
-                        "startOffsets": "173,881",
+                        "startOffsets": "176,896",
                         "endLines": "8,17",
                         "endColumns": "12,12",
-                        "endOffsets": "530,1045"
+                        "endOffsets": "538,1062"
                     },
                     "to": {
                         "startLines": "2,8",

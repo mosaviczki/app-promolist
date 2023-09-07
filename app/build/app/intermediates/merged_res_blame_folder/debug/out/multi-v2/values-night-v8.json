@@ -4,14 +4,38 @@
             "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\moniq\\Downloads\\projeto_dispositivos_moveis\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\src\\flutter-projects\\flutter\\promolist\\app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "from": {
+                        "startLines": "3,-1",
+                        "startColumns": "4,-1",
+                        "startOffsets": "172,-1",
+                        "endLines": "11,-1",
+                        "endColumns": "12,-1",
+                        "endOffsets": "747,-1"
+                    },
+                    "to": {
+                        "startLines": "2,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,507",
+                        "endLines": "9,12",
+                        "endColumns": "12,12",
+                        "endOffsets": "502,671"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\guitd\\.gradle\\daemon\\7.5\\com.example.projeto_dispositivos_moveis.app-mergeDebugResources-9:\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\src\\flutter-projects\\flutter\\promolist\\app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,18",
                         "startColumns": "4,4",
-                        "startOffsets": "172,1094",
+                        "startOffsets": "175,1106",
                         "endLines": "11,20",
                         "endColumns": "12,12",
-                        "endOffsets": "747,1258"
+                        "endOffsets": "757,1272"
                     },
                     "to": {
                         "startLines": "2,10",
