@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/components/appBar.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -15,17 +16,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        /* brightness: Brightness.light */
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-        ),
-      ),
+      appBar: AppBarComponent(),
       body: Column(
         children: <Widget>[
           const Padding(
@@ -68,13 +59,11 @@ class _RecoveryPageState extends State<RecoveryPage> {
             height: 20,
           ),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             width: size.width * 0.78,
             decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(
-                    color: const Color.fromRGBO(12, 17, 23, 1)),
+                border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
                 borderRadius: BorderRadius.circular(30)),
             child: const TextField(
               decoration: InputDecoration(
@@ -88,8 +77,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
           ),
           const SizedBox(height: 20),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             width: size.width * 0.78,
             decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 26, 43, 64),

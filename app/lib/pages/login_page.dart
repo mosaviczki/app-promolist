@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/components/appBar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
 import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
@@ -20,17 +21,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        /* brightness: Brightness.light */
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-        ),
-      ),
+      appBar: AppBarComponent(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Center(
