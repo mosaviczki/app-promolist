@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/appBar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
+import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -86,7 +87,12 @@ class _LoginPageState extends State<LoginPage> {
                     color: const Color.fromARGB(255, 26, 43, 64),
                     borderRadius: BorderRadius.circular(30)),
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainPage()));
+                  },
                   child: const Text(
                     "ENTRAR",
                     style: TextStyle(color: Colors.white),
