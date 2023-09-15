@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/pages/details_page.dart';
+
 
 class ListCard extends StatefulWidget {
-  const ListCard({super.key});
+  const ListCard({super.key, required this.cardKey});
+
+  final String cardKey;
 
   @override
   State<ListCard> createState() => _ListCardState();
@@ -11,133 +14,44 @@ class ListCard extends StatefulWidget {
 class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width * 0.45,
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF000000).withOpacity(1),
-              offset: const Offset(0, 0),
-              blurRadius: 15,
-              spreadRadius: 1,
-              blurStyle: BlurStyle.outer
+    return GestureDetector(
+      onLongPress: () => print(widget.cardKey),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsPages(cardKey: widget.cardKey),
+          )),
+      child: Hero(
+        tag: widget.cardKey,
+        child: Container(
+          width: 150,
+          decoration: BoxDecoration(
+            color: Colors.blue[400],
+            border: Border.all(
+              width: 0.8,
+              color: Colors.blue,
             ),
-          ],
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              color: Color.fromRGBO(71, 101, 255, 1),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ),
-            ),
-            padding: const EdgeInsets.all(15),
-            child: const Row(
-              children: [
-                Text(
-                  'Compras do mês',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'testeeeeeeeee${widget.cardKey}eeeeeeee',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  
                 ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 100,
-            child: CupertinoScrollbar(
-              thumbVisibility: true,
-              child: ListView(
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                    child: Row(
-                      children: [
-                        Icon(Icons.circle_outlined),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Macarrão',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(0, 0, 0, 0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                    child: Row(
-                      children: [
-                        Icon(Icons.circle_outlined),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Arroz',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(0, 0, 0, 0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                    child: Row(
-                      children: [
-                        Icon(Icons.circle_outlined),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Pão',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(0, 0, 0, 0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                    child: Row(
-                      children: [
-                        Icon(Icons.circle_outlined),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Carne',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(0, 0, 0, 0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
 }
+

@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/components/appBar.dart';
+import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
+import 'package:projeto_dispositivos_moveis/pages/details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,8 +61,14 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 30,
             ),
-            const SizedBox(
-              child: ListCard(),
+            SizedBox(
+              height: 50,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => ListCard(cardKey: index.toString()),
+                itemCount: 10,
+                separatorBuilder: (context, index) => const VerticalDivider(width: 10,),
+              ),
             ),
           ],
         ),

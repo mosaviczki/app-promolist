@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/components/appBar.dart';
+import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
