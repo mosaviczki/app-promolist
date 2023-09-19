@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';

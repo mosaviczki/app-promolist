@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:projeto_dispositivos_moveis/pages/history_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/home_page.dart';
-import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -35,7 +36,8 @@ class _MainPageState extends State<MainPage> {
         onPageChanged: setPaginaAtual,
         children: const [
           HomePage(),
-          RecoveryPage(),
+          HistoryPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: Container(
