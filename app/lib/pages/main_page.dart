@@ -41,22 +41,22 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GNav(
-            backgroundColor: Colors.black,
-            color: Colors.white,
-            activeColor: Colors.white,
+            backgroundColor: Colors.white,
+            color: Colors.black,
+            activeColor: Colors.black,
             tabBackgroundColor: Colors.grey,
             duration: const Duration(milliseconds: 500),
             gap: 8,
-            haptic: true,
             onTabChange: (index) {
               pageController.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.ease,
+                
               );
             },
             tabs: const [
@@ -69,8 +69,8 @@ class _MainPageState extends State<MainPage> {
                 text: 'Histórico',
               ),
               GButton(
-                icon: Icons.settings,
-                text: 'Configurações',
+                icon: Icons.person,
+                text: 'Perfil',
               ),
             ],
           ),

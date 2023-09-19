@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBarComponent(),
+      backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'List',
+                  'Lista',
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
@@ -64,9 +65,12 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => ListCard(cardKey: index.toString()),
+                itemBuilder: (context, index) =>
+                    ListCard(cardKey: index.toString()),
                 itemCount: 10,
-                separatorBuilder: (context, index) => const VerticalDivider(width: 10,),
+                separatorBuilder: (context, index) => const VerticalDivider(
+                  width: 10,
+                ),
               ),
             ),
           ],
