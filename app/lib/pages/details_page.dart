@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
-import 'package:projeto_dispositivos_moveis/components/list_card.dart';
+
 
 class DetailsPages extends StatefulWidget {
   const DetailsPages({super.key, required this.cardKey});

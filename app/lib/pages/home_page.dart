@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
-import 'package:projeto_dispositivos_moveis/pages/details_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
