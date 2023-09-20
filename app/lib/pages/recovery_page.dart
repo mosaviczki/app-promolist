@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/components/appBar.dart';
+import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -16,7 +16,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBarComponent(),
+      appBar: const AppBarComponent(),
       body: Column(
         children: <Widget>[
           const Padding(
