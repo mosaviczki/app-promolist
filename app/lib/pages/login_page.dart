@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
+import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:provider/provider.dart';
@@ -108,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+<<<<<<< HEAD
                 const SizedBox(height: 10),
                 Container(
                   padding:
@@ -130,6 +132,27 @@ class _LoginPageState extends State<LoginPage> {
                       "ENTRAR",
                       style: TextStyle(color: Colors.white),
                     ),
+=======
+              ),
+              const SizedBox(height: 10),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                width: size.width * 0.7,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 26, 43, 64),
+                    borderRadius: BorderRadius.circular(30)),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainPage()));
+                  },
+                  child: const Text(
+                    "ENTRAR",
+                    style: TextStyle(color: Colors.white),
+>>>>>>> 08667fc545a961166971313f1d40142b0897fac7
                   ),
                 ),
                 const SizedBox(height: 15),

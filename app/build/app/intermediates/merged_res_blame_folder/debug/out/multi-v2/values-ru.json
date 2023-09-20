@@ -4,6 +4,7 @@
             "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-ru/values-ru.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\006bbe5a907188cb8f989af846bf78a4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-ru\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -56,6 +57,9 @@
                 },
                 {
                     "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\9df09c476a8966dff0ab2c589910f62f\\transformed\\core-1.6.0\\res\\values-ru\\values-ru.xml",
+=======
+                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\7e9df2ac2213a6bd3cef0f2f27870d79\\transformed\\core-1.6.0\\res\\values-ru\\values-ru.xml",
+>>>>>>> 08667fc545a961166971313f1d40142b0897fac7
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

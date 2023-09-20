@@ -4,6 +4,7 @@
             "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-ar/values-ar.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\15eddd45100fa512963e6542464ed3b9\\transformed\\browser-1.4.0\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -56,6 +57,9 @@
                 },
                 {
                     "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\9df09c476a8966dff0ab2c589910f62f\\transformed\\core-1.6.0\\res\\values-ar\\values-ar.xml",
+=======
+                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\7e9df2ac2213a6bd3cef0f2f27870d79\\transformed\\core-1.6.0\\res\\values-ar\\values-ar.xml",
+>>>>>>> 08667fc545a961166971313f1d40142b0897fac7
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
