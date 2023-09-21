@@ -231,10 +231,7 @@ packages:
       sha256: "0833bfcc1c32560ee51d381fcf1d6d6b35921e89afe852c12f83dc8c00b2e6bc"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "6.0.0"
-=======
-    version: "2.3.3"
   google_nav_bar:
     dependency: "direct main"
     description:
@@ -243,7 +240,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.6"
->>>>>>> 08667fc545a961166971313f1d40142b0897fac7
   html:
     dependency: transitive
     description:

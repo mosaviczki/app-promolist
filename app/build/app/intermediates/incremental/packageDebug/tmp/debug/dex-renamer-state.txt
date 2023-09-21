@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-#Wed Sep 20 18:20:37 BRT 2023
-base.0=C\:\\code\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-=======
-#Tue Sep 19 15:24:12 BRT 2023
-base.0=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
->>>>>>> 08667fc545a961166971313f1d40142b0897fac7
-path.0=classes.dex
-renamed.0=classes.dex

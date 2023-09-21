@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+/* import 'package:firebase_core/firebase_core.dart'; */
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  /* await Firebase.initializeApp(); */
   /* runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),

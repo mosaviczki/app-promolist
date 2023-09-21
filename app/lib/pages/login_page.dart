@@ -109,7 +109,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-<<<<<<< HEAD
                 const SizedBox(height: 10),
                 Container(
                   padding:
@@ -120,39 +119,22 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   child: MaterialButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
+                      /* if (formKey.currentState!.validate()) {
                         if (isLogin) {
                           login();
                         } else {
                           return;
                         }
-                      }
+                      } */
+                       Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainPage()));
                     },
                     child: const Text(
                       "ENTRAR",
                       style: TextStyle(color: Colors.white),
                     ),
-=======
-              ),
-              const SizedBox(height: 10),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                width: size.width * 0.7,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 26, 43, 64),
-                    borderRadius: BorderRadius.circular(30)),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MainPage()));
-                  },
-                  child: const Text(
-                    "ENTRAR",
-                    style: TextStyle(color: Colors.white),
->>>>>>> 08667fc545a961166971313f1d40142b0897fac7
                   ),
                 ),
                 const SizedBox(height: 15),

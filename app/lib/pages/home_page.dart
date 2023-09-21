@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
 
->>>>>>> 08667fc545a961166971313f1d40142b0897fac7
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,12 +13,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return const Placeholder();
-=======
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBarComponent(),
+      appBar: const AppBarComponent(),
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -83,6 +77,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
->>>>>>> 08667fc545a961166971313f1d40142b0897fac7
   }
 }

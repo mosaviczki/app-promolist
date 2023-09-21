@@ -10,7 +10,6 @@ class HistoryCard extends StatefulWidget {
 class _HistoryCardState extends State<HistoryCard> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     double cardWidth = 315;
     return Column(
       children: [
