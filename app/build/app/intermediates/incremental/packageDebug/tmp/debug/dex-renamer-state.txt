@@ -1,4 +1,4 @@
-#Tue Sep 19 15:24:12 BRT 2023
+#Sun Sep 24 11:29:42 BRT 2023
 base.0=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
