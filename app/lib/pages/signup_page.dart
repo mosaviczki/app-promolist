@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
+import 'package:projeto_dispositivos_moveis/pages/login_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -32,10 +33,15 @@ class _SignUpPageState extends State<SignUpPage> {
       await context
           .read<AuthService>()
           .register(_emailController.text, _senhaController.text);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Cadastrado com sucesso'),
+          backgroundColor: Colors.green));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message)));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message), backgroundColor: Colors.red));
     }
   }
 
@@ -104,18 +110,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.circular(30)),
               child: MaterialButton(
                 onPressed: () {
-                  /* if (formKey.currentState!.validate()) {
-                    if (!isLogin) {
-                      register();
-                    } else {
-                      return;
-                    }
-                  } */
                   if (!isLogin) {
                     register();
-                  } else {
-                    print("Falha");
                   }
+                  ;
                 },
                 child: const Text(
                   "CADASTRAR",

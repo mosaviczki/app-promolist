@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
+import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:provider/provider.dart';
@@ -42,11 +43,14 @@ class _LoginPageState extends State<LoginPage> {
       await context
           .read<AuthService>()
           .login(_emailController.text, _senhaController.text);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Logado com sucesso'), backgroundColor: Colors.green));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     } on AuthException catch (e) {
-      print(e);
-      setState(() => loading = true);
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message)));
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message), backgroundColor: Colors.red));
     }
   }
 
@@ -61,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         reverse: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Form(
             key: formKey,
             child: Column(
@@ -129,17 +133,9 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   child: MaterialButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        if (isLogin) {
-                          login();
-                        } else {
-                          return;
-                        }
+                      if (isLogin) {
+                        login();
                       }
-                      /*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainPage()));*/
                     },
                     child: const Text(
                       "ENTRAR",

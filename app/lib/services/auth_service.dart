@@ -46,11 +46,9 @@ class AuthService extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'wrong-password') {
-        throw AuthException("Senha incorreta");
-      } else if (e.code == 'user-not-found') {
-        throw AuthException(
-            "Email não encontrado. Verifique seu email ou cadastre-se");
+      print(e.code);
+      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+        throw AuthException("Email e/ou senha incorreta");
       }
     }
   }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PersonalInfoPage extends StatefulWidget {
-  const PersonalInfoPage({super.key});
-
+  const PersonalInfoPage(
+      {super.key,
+      required this.nome,
+      required this.email,
+      required this.telefone});
+  final String nome, email, telefone;
   @override
   State<PersonalInfoPage> createState() => _PersonalInfoPageState();
 }
@@ -11,15 +15,15 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController =
-        TextEditingController(text: 'Guilherme');
-    String name = "Guilherme";
+        TextEditingController(text: widget.nome);
+    
     TextEditingController lastNameController =
-        TextEditingController(text: 'Sanches');
-    String lastName = "Sanches";
+        TextEditingController(text: '');
+    
     TextEditingController emailController =
-        TextEditingController(text: 'guitdsanches@gmail.com');
+        TextEditingController(text: widget.email);
     TextEditingController phoneController =
-        TextEditingController(text: '13*****9290');
+        TextEditingController(text: widget.telefone);
 
     return Scaffold(
       appBar: AppBar(
