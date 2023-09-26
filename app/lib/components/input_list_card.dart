@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/model/itens.dart';
 
-class InputListCard extends StatelessWidget {
+class InputListCard extends StatefulWidget {
   final Function toggleIsVisible;
 
   const InputListCard({
@@ -9,10 +10,28 @@ class InputListCard extends StatelessWidget {
   });
 
   @override
+  State<InputListCard> createState() => _InputListCardState();
+}
+
+class _InputListCardState extends State<InputListCard> {
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    TextEditingController textController1 = TextEditingController();
-    TextEditingController textController2 = TextEditingController();
+    TextEditingController cardTitleController = TextEditingController();
+    TextEditingController itemNameController = TextEditingController();
+    TextEditingController quantityController = TextEditingController();
+    List<Itens> listaItem = [
+      Itens(nome: 'teste', quantidade: 3),
+      Itens(nome: 'teste2', quantidade: 3),
+    ];
+
+    handleAdd() {
+      setState(() {
+        listaItem.add(Itens(
+            nome: itemNameController.text,
+            quantidade: int.parse(quantityController.text)));
+      });
+    }
 
     return Center(
       child: Container(
@@ -21,7 +40,7 @@ class InputListCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         width: size.width * 0.8,
-        height: size.height * 0.6,
+        height: size.height * 0.7,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
@@ -30,7 +49,7 @@ class InputListCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    onPressed: () => toggleIsVisible(),
+                    onPressed: () => widget.toggleIsVisible(),
                     icon: const Icon(Icons.close),
                   ),
                 ],
@@ -38,7 +57,7 @@ class InputListCard extends StatelessWidget {
               Column(
                 children: [
                   TextFormField(
-                    controller: textController1,
+                    controller: cardTitleController,
                     decoration: const InputDecoration(
                       labelText: 'Titulo',
                       contentPadding: EdgeInsets.symmetric(
@@ -55,13 +74,26 @@ class InputListCard extends StatelessWidget {
                       return null;
                     },
                   ),
+                  TextFormField(
+                    controller: itemNameController,
+                    decoration: const InputDecoration(labelText: 'Item'),
+                    validator: (value) {
+                      if (value != null) {
+                        return value.isEmpty
+                            ? 'Por favor, insira um item!'
+                            : null;
+                      }
+                      return null;
+                    },
+                  ),
                   Row(
                     children: [
                       SizedBox(
                         width: size.width * 0.62,
                         child: TextFormField(
-                          controller: textController2,
-                          decoration: const InputDecoration(labelText: 'Item'),
+                          controller: quantityController,
+                          decoration:
+                              const InputDecoration(labelText: 'Quantidade'),
                           validator: (value) {
                             if (value != null) {
                               return value.isEmpty
@@ -75,7 +107,14 @@ class InputListCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              listaItem.add(Itens(
+                                  nome: itemNameController.text,
+                                  quantidade:
+                                      int.parse(quantityController.text)));
+                            });
+                          },
                           icon: const Icon(
                             Icons.add,
                             size: 30,
@@ -86,30 +125,32 @@ class InputListCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                height: 180,
-                child: Scrollbar(
-                  thumbVisibility: true,
-                  child: ListView.separated(
-                    itemBuilder: (context, index) => const ListTile(
-                      visualDensity: VisualDensity(vertical: -3),
-                      leading: Padding(
-                        padding: EdgeInsets.only(top: 5),
-                        child: Icon(
-                          Icons.circle,
-                          size: 15,
+              listaItem.isEmpty
+                  ? const Text('')
+                  : SizedBox(
+                      height: 180,
+                      child: Scrollbar(
+                        thumbVisibility: true,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) => ListTile(
+                            visualDensity: const VisualDensity(vertical: -3),
+                            leading: const Padding(
+                              padding: EdgeInsets.only(top: 5),
+                              child: Icon(
+                                Icons.circle,
+                                size: 15,
+                              ),
+                            ),
+                            title: Text(listaItem[index].nome),
+                            trailing: const Icon(Icons.delete),
+                          ),
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 5,
+                          ),
+                          itemCount: listaItem.length,
                         ),
                       ),
-                      title: Text('Item'),
-                      trailing: Icon(Icons.delete),
                     ),
-                    separatorBuilder: (context, index) => const SizedBox(
-                      height: 5,
-                    ),
-                    itemCount: 10,
-                  ),
-                ),
-              ),
               const SizedBox(
                 height: 30,
               ),

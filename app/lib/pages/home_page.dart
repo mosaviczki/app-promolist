@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/input_list_card.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
+import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,8 +21,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  var cards = CardRepository.cards;
+
   @override
   Widget build(BuildContext context) {
+    
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
@@ -82,8 +87,8 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
-                          ListCard(cardKey: index.toString()),
-                      itemCount: 10,
+                          ListCard(cardKey: cards.toString(), title:cards[index].titulo,listaItens: cards[index].listaItens),
+                      itemCount: cards.length,
                       separatorBuilder: (context, index) =>
                           const VerticalDivider(
                         width: 10,
@@ -98,7 +103,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          if (isCardVisible)  InputListCard(toggleIsVisible: toggleCardVisibility),
+          if (isCardVisible)
+            InputListCard(toggleIsVisible: toggleCardVisibility),
         ],
       ),
     );
