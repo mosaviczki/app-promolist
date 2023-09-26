@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
 
   bool isLogin = true;
   bool _obscureText = true;
+  bool loading = false;
 
   @override
   void initState() {
@@ -36,12 +37,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   login() async {
+    setState(() => loading = true);
     try {
       await context
           .read<AuthService>()
           .login(_emailController.text, _senhaController.text);
     } on AuthException catch (e) {
-      // ignore: use_build_context_synchronously
+      print(e);
+      setState(() => loading = true);
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
     }

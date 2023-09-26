@@ -13,8 +13,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late GoogleMapController mapController;
-  double lat = -25.072556;
-  double long = -50.152239;
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -82,6 +80,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            const Expanded(child: Maps()),
           ],
         ),
       ),

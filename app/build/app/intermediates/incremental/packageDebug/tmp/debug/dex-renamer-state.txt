@@ -1,4 +1,4 @@
-#Mon Sep 25 21:23:12 BRT 2023
+#Tue Sep 26 09:46:47 BRT 2023
 base.0=C\:\\code\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 base.1=C\:\\code\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.0=classes.dex

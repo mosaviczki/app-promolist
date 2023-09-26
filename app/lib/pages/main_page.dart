@@ -37,7 +37,6 @@ class _MainPageState extends State<MainPage> {
         onPageChanged: setPaginaAtual,
         children: const [
           HomePage(),
-          Maps(),
           HistoryPage(),
           ProfilePage(),
         ],
@@ -64,10 +63,6 @@ class _MainPageState extends State<MainPage> {
               GButton(
                 icon: Icons.home,
                 text: 'Home',
-              ),
-              GButton(
-                icon: Icons.location_on,
-                text: 'Mapa',
               ),
               GButton(
                 icon: Icons.history,
