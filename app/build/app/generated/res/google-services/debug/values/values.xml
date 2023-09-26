@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gcm_defaultSenderId" translatable="false">983907687099</string>
-    <string name="google_api_key" translatable="false">AIzaSyAAMJRFjVDQl8AKKe6JHd_w0dFnCmPk9f8</string>
-    <string name="google_app_id" translatable="false">1:983907687099:android:b81bc80a2324fe5c2b679e</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAAMJRFjVDQl8AKKe6JHd_w0dFnCmPk9f8</string>
-    <string name="google_storage_bucket" translatable="false">promolist-flutter-c4b04.appspot.com</string>
-    <string name="project_id" translatable="false">promolist-flutter-c4b04</string>
+    <string name="gcm_defaultSenderId" translatable="false">36844156603</string>
+    <string name="google_api_key" translatable="false">AIzaSyDbice6Y2YGE3NfAte1Za7S3OFleZkmTwU</string>
+    <string name="google_app_id" translatable="false">1:36844156603:android:ee310cfaa49d8a47c81b9e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDbice6Y2YGE3NfAte1Za7S3OFleZkmTwU</string>
+    <string name="google_storage_bucket" translatable="false">promolist-de655.appspot.com</string>
+    <string name="project_id" translatable="false">promolist-de655</string>
 </resources>
