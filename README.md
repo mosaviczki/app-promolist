@@ -2,10 +2,10 @@
 
 ### Projeto para a Matéria Desenvolvimento de Dispositivos Movéis - UTFPR
 Linguagem e ferramentas utilizadas:
-* Dart
-* VS Code
-* Firebase
-* Google cloud
+* <img align="center" alt="Dart" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"/> Dart
+* <img align="center" alt="VS" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/> VS Code
+* <img align="center" alt="Firebase" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"/> Firebase
+* <img align="center" alt="Google" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"/> Google cloud
 
 # Sobre o aplicativo:
 O Aplicativo tem tela de login e cadastro na qual a autenticação é feita pelo firebase.
