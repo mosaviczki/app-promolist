@@ -52,6 +52,7 @@ flutter:
     - assets/signup.png
     - assets/reset_password.png
     - assets/logo/icon_logo_dark.png
+    - assets/terms_icon.png
 
   fonts:
     - family: Poppins
