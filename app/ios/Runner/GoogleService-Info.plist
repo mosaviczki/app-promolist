@@ -3,17 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
+<<<<<<< HEAD
 	<string>AIzaSyC0wnzK65c0Lx7g62w1b5hufj_6nHUk_Lw</string>
 	<key>GCM_SENDER_ID</key>
 	<string>983907687099</string>
+=======
+	<string>AIzaSyCbKmwzO_DNUksc3o_AwrMyYs2yUGyu9oI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>36844156603</string>
+>>>>>>> c9c7550ebd8a29ffdf814997bc23429fb7a9bda6
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.projetoDispositivosMoveis</string>
 	<key>PROJECT_ID</key>
+<<<<<<< HEAD
 	<string>promolist-flutter-c4b04</string>
 	<key>STORAGE_BUCKET</key>
 	<string>promolist-flutter-c4b04.appspot.com</string>
+=======
+	<string>promolist-de655</string>
+	<key>STORAGE_BUCKET</key>
+	<string>promolist-de655.appspot.com</string>
+>>>>>>> c9c7550ebd8a29ffdf814997bc23429fb7a9bda6
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +37,10 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
+<<<<<<< HEAD
 	<string>1:983907687099:ios:e6ddaea73836c24b2b679e</string>
+=======
+	<string>1:36844156603:ios:b8a4da561e631961c81b9e</string>
+>>>>>>> c9c7550ebd8a29ffdf814997bc23429fb7a9bda6
 </dict>
 </plist>

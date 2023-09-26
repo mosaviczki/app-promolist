@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-v31/values-v31.xml",
+            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-15:/values-v31/values-v31.xml",
             "map": [
                 {
                     "source": "C:\\src\\flutter-projects\\flutter\\promolist\\app\\android\\app\\src\\main\\res\\values-v31\\styles.xml",

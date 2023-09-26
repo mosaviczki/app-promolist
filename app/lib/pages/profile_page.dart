@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
+import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -83,7 +84,10 @@ class ProfilePage extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25),
-              child: Divider(height: 1, thickness: 2,),
+              child: Divider(
+                height: 1,
+                thickness: 2,
+              ),
             ),
             const ListTile(
               leading: Icon(Icons.security_outlined, color: Colors.black),
@@ -97,9 +101,12 @@ class ProfilePage extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25, bottom: 20),
-              child: Divider(height: 1, thickness: 2,),
+              child: Divider(
+                height: 1,
+                thickness: 2,
+              ),
             ),
-             ListTile(
+            ListTile(
               leading: Image.asset("assets/terms_icon.png"),
               title: const Text('Termos de uso'),
               trailing: const Icon(
@@ -107,14 +114,18 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
                 size: 30,
               ),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const TermsPage())),
               contentPadding: const EdgeInsets.only(top: 5, right: 15),
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25),
-              child: Divider(height: 1, thickness: 2,),
+              child: Divider(
+                height: 1,
+                thickness: 2,
+              ),
             ),
-             ListTile(
+            ListTile(
               leading: Image.asset("assets/terms_icon.png"),
               title: const Text('Política de privacidade'),
               trailing: const Icon(
@@ -122,19 +133,24 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
                 size: 30,
               ),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const PrivacyPage())),
               contentPadding: const EdgeInsets.only(top: 5, right: 15),
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25),
-              child: Divider(height: 1, thickness: 2,),
+              child: Divider(
+                height: 1,
+                thickness: 2,
+              ),
             ),
-           
             const SizedBox(
               height: 20,
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                AuthService().logout();
+              },
               icon: const Icon(
                 Icons.exit_to_app,
                 color: Colors.black,

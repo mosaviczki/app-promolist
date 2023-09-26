@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-15:/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\9df09c476a8966dff0ab2c589910f62f\\transformed\\core-1.6.0\\res\\values-pt-rBR\\values-pt-rBR.xml",

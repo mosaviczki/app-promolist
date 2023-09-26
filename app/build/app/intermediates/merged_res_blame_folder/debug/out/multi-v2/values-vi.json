@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-vi/values-vi.xml",
+            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-15:/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\15eddd45100fa512963e6542464ed3b9\\transformed\\browser-1.4.0\\res\\values-vi\\values-vi.xml",

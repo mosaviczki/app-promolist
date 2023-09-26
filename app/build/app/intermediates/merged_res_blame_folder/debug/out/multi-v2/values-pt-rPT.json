@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-15:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\006bbe5a907188cb8f989af846bf78a4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-pt-rPT\\values.xml",

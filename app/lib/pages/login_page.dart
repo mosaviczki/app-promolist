@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
-import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/recovery_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:provider/provider.dart';
@@ -16,11 +15,13 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
-  final email = TextEditingController();
-  final senha = TextEditingController();
+
+  final _emailController = TextEditingController();
+  final _senhaController = TextEditingController();
 
   bool isLogin = true;
   bool _obscureText = true;
+  bool loading = false;
 
   @override
   void initState() {
@@ -36,10 +37,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   login() async {
+    setState(() => loading = true);
     try {
-      await context.read<AuthService>().login(email.text, senha.text);
+      await context
+          .read<AuthService>()
+          .login(_emailController.text, _senhaController.text);
     } on AuthException catch (e) {
-      // ignore: use_build_context_synchronously
+      print(e);
+      setState(() => loading = true);
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
@@ -76,15 +81,19 @@ class _LoginPageState extends State<LoginPage> {
                       image: DecorationImage(
                           image: AssetImage("assets/login.png"))),
                 ),
-                const InputText(
+                InputText(
                   hintText: 'Email',
                   backgroundColor: Colors.white,
                   iconData: Icons.email,
                   inputType: TextInputType.emailAddress,
+                  isController: _emailController,
                 ),
                 const SizedBox(height: 20),
-                const InputPassword(
-                    hintText: 'Password', backgroundColor: Colors.white),
+                InputPassword(
+                  hintText: 'Password',
+                  backgroundColor: Colors.white,
+                  isController: _senhaController,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 160,
@@ -119,17 +128,17 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   child: MaterialButton(
                     onPressed: () {
-                      /* if (formKey.currentState!.validate()) {
+                      if (formKey.currentState!.validate()) {
                         if (isLogin) {
                           login();
                         } else {
                           return;
                         }
-                      } */
-                       Navigator.push(
+                      }
+                      /*Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MainPage()));
+                          builder: (context) => const MainPage()));*/
                     },
                     child: const Text(
                       "ENTRAR",
@@ -187,7 +196,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                Row(
+                /* Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Padding(
@@ -237,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         )),
                   ],
-                ),
+                ), */
                 const SizedBox(height: 30)
               ],
             ),

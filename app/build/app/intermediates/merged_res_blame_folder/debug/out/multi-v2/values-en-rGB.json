@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-14:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-15:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\c2a790f66370431fc16fd1435b68b6ea\\transformed\\jetified-play-services-base-18.0.1\\res\\values-en-rGB\\values.xml",

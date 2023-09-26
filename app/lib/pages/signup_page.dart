@@ -14,26 +14,24 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final formKey = GlobalKey<FormState>();
-  final email = TextEditingController();
-  final senha = TextEditingController();
-  bool isLogin = true;
+  bool isLogin = false;
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    setFormAction(true);
-  }
-
-  setFormAction(bool acao) {
-    setState(() {
-      isLogin = acao;
-      if (isLogin) {}
-    });
+    /* setFormAction(true); */
   }
 
   register() async {
     try {
-      await context.read<AuthService>().register(email.text, senha.text);
+      await context
+          .read<AuthService>()
+          .register(_emailController.text, _senhaController.text);
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
@@ -68,29 +66,35 @@ class _SignUpPageState extends State<SignUpPage> {
                   image:
                       DecorationImage(image: AssetImage("assets/signup.png"))),
             ),
-            const InputText(
+            InputText(
                 hintText: 'Nome',
                 backgroundColor: Colors.white,
                 iconData: Icons.person,
                 inputType: TextInputType.name,
+                isController: _nomeController,
                 inputFormatter: true),
             const SizedBox(height: 10),
-            const InputText(
+            InputText(
               hintText: 'Email',
               backgroundColor: Colors.white,
               iconData: Icons.mail,
+              isController: _emailController,
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            const InputText(
+            InputText(
               hintText: 'Telefone',
               backgroundColor: Colors.white,
               iconData: Icons.phone,
+              isController: _phoneController,
               inputType: TextInputType.phone,
             ),
             const SizedBox(height: 10),
-            const InputPassword(
-                hintText: 'Password', backgroundColor: Colors.white),
+            InputPassword(
+              hintText: 'Password',
+              backgroundColor: Colors.white,
+              isController: _senhaController,
+            ),
             const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -99,7 +103,20 @@ class _SignUpPageState extends State<SignUpPage> {
                   color: const Color.fromARGB(255, 26, 43, 64),
                   borderRadius: BorderRadius.circular(30)),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  /* if (formKey.currentState!.validate()) {
+                    if (!isLogin) {
+                      register();
+                    } else {
+                      return;
+                    }
+                  } */
+                  if (!isLogin) {
+                    register();
+                  } else {
+                    print("Falha");
+                  }
+                },
                 child: const Text(
                   "CADASTRAR",
                   style: TextStyle(

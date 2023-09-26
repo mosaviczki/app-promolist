@@ -44,38 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyClB5dC3JZHUYYjVQVvvFyaYzKn5FQz4NM',
-    appId: '1:983907687099:web:3f4a7911aa10959b2b679e',
-    messagingSenderId: '983907687099',
-    projectId: 'promolist-flutter-c4b04',
-    authDomain: 'promolist-flutter-c4b04.firebaseapp.com',
-    storageBucket: 'promolist-flutter-c4b04.appspot.com',
-    measurementId: 'G-3NCTJP6C0H',
+    apiKey: 'AIzaSyBXN5WidOiAmXgi181jthpPqsf75vTg3XE',
+    appId: '1:36844156603:web:6131437737e07eecc81b9e',
+    messagingSenderId: '36844156603',
+    projectId: 'promolist-de655',
+    authDomain: 'promolist-de655.firebaseapp.com',
+    storageBucket: 'promolist-de655.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAAMJRFjVDQl8AKKe6JHd_w0dFnCmPk9f8',
-    appId: '1:983907687099:android:b81bc80a2324fe5c2b679e',
-    messagingSenderId: '983907687099',
-    projectId: 'promolist-flutter-c4b04',
-    storageBucket: 'promolist-flutter-c4b04.appspot.com',
+    apiKey: 'AIzaSyDbice6Y2YGE3NfAte1Za7S3OFleZkmTwU',
+    appId: '1:36844156603:android:ee310cfaa49d8a47c81b9e',
+    messagingSenderId: '36844156603',
+    projectId: 'promolist-de655',
+    storageBucket: 'promolist-de655.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC0wnzK65c0Lx7g62w1b5hufj_6nHUk_Lw',
-    appId: '1:983907687099:ios:e6ddaea73836c24b2b679e',
-    messagingSenderId: '983907687099',
-    projectId: 'promolist-flutter-c4b04',
-    storageBucket: 'promolist-flutter-c4b04.appspot.com',
+    apiKey: 'AIzaSyCbKmwzO_DNUksc3o_AwrMyYs2yUGyu9oI',
+    appId: '1:36844156603:ios:b8a4da561e631961c81b9e',
+    messagingSenderId: '36844156603',
+    projectId: 'promolist-de655',
+    storageBucket: 'promolist-de655.appspot.com',
     iosBundleId: 'com.example.projetoDispositivosMoveis',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC0wnzK65c0Lx7g62w1b5hufj_6nHUk_Lw',
-    appId: '1:983907687099:ios:276954e64d4ee3782b679e',
-    messagingSenderId: '983907687099',
-    projectId: 'promolist-flutter-c4b04',
-    storageBucket: 'promolist-flutter-c4b04.appspot.com',
+    apiKey: 'AIzaSyCbKmwzO_DNUksc3o_AwrMyYs2yUGyu9oI',
+    appId: '1:36844156603:ios:fc776924922092a4c81b9e',
+    messagingSenderId: '36844156603',
+    projectId: 'promolist-de655',
+    storageBucket: 'promolist-de655.appspot.com',
     iosBundleId: 'com.example.projetoDispositivosMoveis.RunnerTests',
   );
 }

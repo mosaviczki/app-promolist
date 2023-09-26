@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_list_card.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
+import 'package:projeto_dispositivos_moveis/components/maps.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: const AppBarComponent(),
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Stack(
         children: [
@@ -31,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             opacity: isCardVisible ? 0.4 : 1.0,
             duration: const Duration(milliseconds: 300),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
               child: Column(
                 children: [
                   Row(
@@ -45,7 +44,9 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 24),
                       ),
                       IconButton(
-                        onPressed: !isCardVisible ? () => toggleCardVisibility() : null,
+                        onPressed: !isCardVisible
+                            ? () => toggleCardVisibility()
+                            : null,
                         icon: Image.asset("assets/plus_icon.png"),
                       ),
                     ],
@@ -89,12 +90,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Expanded(child: Maps()),
                 ],
               ),
             ),
           ),
-          if (isCardVisible)
-            const InputListCard()
+          if (isCardVisible) const InputListCard(),
         ],
       ),
     );

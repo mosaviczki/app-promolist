@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    /*TODO: implement initState*/
     super.initState();
     pageController = PageController(initialPage: paginaAtual);
   }
@@ -56,7 +56,6 @@ class _MainPageState extends State<MainPage> {
                 index,
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.ease,
-                
               );
             },
             tabs: const [
