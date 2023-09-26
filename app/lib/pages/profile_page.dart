@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -94,7 +96,7 @@ class ProfilePage extends StatelessWidget {
               contentPadding: EdgeInsets.only(top: 5, right: 15),
             ),
             const Padding(
-              padding: EdgeInsets.only(right: 25),
+              padding: EdgeInsets.only(right: 25, bottom: 20),
               child: Divider(height: 1, thickness: 2,),
             ),
              ListTile(
@@ -105,6 +107,7 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
                 size: 30,
               ),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsPage())),
               contentPadding: const EdgeInsets.only(top: 5, right: 15),
             ),
             const Padding(
@@ -119,6 +122,7 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
                 size: 30,
               ),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPage())),
               contentPadding: const EdgeInsets.only(top: 5, right: 15),
             ),
             const Padding(

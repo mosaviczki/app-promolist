@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 
-
 class DetailsPages extends StatefulWidget {
   const DetailsPages({super.key, required this.cardKey});
 
@@ -17,7 +16,7 @@ class _DetailsPagesState extends State<DetailsPages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarComponent(),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Column(
         children: [
           const SizedBox(
@@ -39,7 +38,7 @@ class _DetailsPagesState extends State<DetailsPages> {
             ],
           ),
           const SizedBox(
-            height: 25,
+            height: 35,
           ),
           Expanded(
             child: ListView.separated(
@@ -61,7 +60,7 @@ class _DetailsPagesState extends State<DetailsPages> {
                           }
                         });
                       },
-                      icon: const Icon(Icons.remove),   
+                      icon: const Icon(Icons.remove),
                     ),
                     Text('$valorTeste'),
                     IconButton(

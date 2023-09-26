@@ -32,7 +32,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 IconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.exposure_plus_1_outlined)),
+                    icon: Image.asset("assets/plus_icon.png"),),
+                    /* icon: const Icon(Icons.exposure_plus_1_outlined)), */
               ],
             ),
             const SizedBox(
