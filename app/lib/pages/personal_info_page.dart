@@ -10,10 +10,16 @@ class PersonalInfoPage extends StatefulWidget {
 class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController(text: '');
+    TextEditingController nameController =
+        TextEditingController(text: 'Guilherme');
     String name = "Guilherme";
-    TextEditingController lastNameController = TextEditingController(text: '');
+    TextEditingController lastNameController =
+        TextEditingController(text: 'Sanches');
     String lastName = "Sanches";
+    TextEditingController emailController =
+        TextEditingController(text: 'guitdsanches@gmail.com');
+    TextEditingController phoneController =
+        TextEditingController(text: '13*****9290');
 
     return Scaffold(
       appBar: AppBar(
@@ -94,6 +100,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextFormField(
+                  controller: emailController,
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     suffixIcon: InkWell(
@@ -108,6 +115,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextFormField(
+                  controller: phoneController,
                   decoration: const InputDecoration(
                     labelText: 'Telefone',
                     suffixIcon: InkWell(

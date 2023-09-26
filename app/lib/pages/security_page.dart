@@ -48,29 +48,50 @@ class SecurityPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Senha',
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.only(top: 15,),
-                      child: InkWell(
-                        onTap: () => print('alterar senha'),
-                        child: const Text(
-                            'Alterar',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Senha',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
-                  ),
+                    InkWell(
+                      onTap: () => print('Alterando senha'),
+                      child: const Text(
+                        'Alterar',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
-                height: 45,
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  'Ultima alteração há 3 meses',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Divider(thickness: 2),
+              ),
+              const SizedBox(
+                height: 25,
               ),
               const Padding(
                 padding: EdgeInsets.only(
@@ -84,71 +105,117 @@ class SecurityPage extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.facebook),
-                    labelText: 'Facebook',
-                    suffixIcon: InkWell(
-                      onTap: () => print('desconectando'),
-                      child: const Padding(
-                        padding: EdgeInsets.only(
-                          top: 15,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            right: 20,
+                          ),
+                          child: Icon(Icons.facebook, size: 28,),
                         ),
-                        child: Text(
-                          'Desconectar',
+                        Text(
+                          'Facebook',
                           style: TextStyle(
-                            color: Colors.blue,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
+                        ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () => print('Desconectando'),
+                      child: const Text(
+                        'Desconectar',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 25,),
-               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Image.asset('assets/google_icon.png'),
-                    labelText: 'Google',
-                    suffixIcon: InkWell(
-                      onTap: () => print('desconectando'),
-                      child: const Padding(
-                        padding: EdgeInsets.only(
-                          top: 15,
-                        ),
-                        child: Text(
-                          'Conectar',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  ],
                 ),
               ),
               const SizedBox(
-                height: 80,
+                height: 20,
               ),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  'Conectado',
+                  style: TextStyle(
+                    color: Colors.grey[600],
                   ),
-                  child: const Text('Salvar alterações'),
                 ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Divider(
+                  thickness: 2,
+                ),
+              ), //facebook
+              const SizedBox(height: 15,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                          ),
+                          child: Image.asset('assets/google_icon.png'),
+                        ),
+                        const Text(
+                          'Google',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () => print('Conectando'),
+                      child: const Text(
+                        'Conectar',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ), //google
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  'Desconectado',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Divider(thickness: 2),
               ),
             ],
           ),
