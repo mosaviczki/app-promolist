@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/pages/personal_info_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/security_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
@@ -91,15 +92,16 @@ class ProfilePage extends StatelessWidget {
                 thickness: 2,
               ),
             ),
-            const ListTile(
-              leading: Icon(Icons.security_outlined, color: Colors.black),
-              title: Text('Login e Segurança'),
-              trailing: Icon(
+            ListTile(
+              leading: const Icon(Icons.security_outlined, color: Colors.black),
+              title: const Text('Login e Segurança'),
+              trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.black,
                 size: 30,
               ),
-              contentPadding: EdgeInsets.only(top: 5, right: 15),
+              contentPadding: const EdgeInsets.only(top: 5, right: 15),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: ((context) => const SecurityPage()))),
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25, bottom: 20),

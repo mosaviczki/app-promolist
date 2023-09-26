@@ -10,10 +10,10 @@ class PersonalInfoPage extends StatefulWidget {
 class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController();
-    String name = "";
-    TextEditingController lastNameController = TextEditingController();
-    String lastName = "";
+    TextEditingController nameController = TextEditingController(text: '');
+    String name = "Guilherme";
+    TextEditingController lastNameController = TextEditingController(text: '');
+    String lastName = "Sanches";
 
     return Scaffold(
       appBar: AppBar(
@@ -63,9 +63,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                                 isDense: true,
                               ),
                               onEditingComplete: () {
-                                setState(() {
-                                  name = nameController.text;
-                                });
+                                setState(() {});
                               },
                             ),
                           ),
@@ -123,7 +121,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print(nameController.text);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
