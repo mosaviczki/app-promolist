@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:projeto_dispositivos_moveis/pages/history_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/home_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/profile.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -37,7 +38,7 @@ class _MainPageState extends State<MainPage> {
         children: const [
           HomePage(),
           HistoryPage(),
-          ProfilePage(),
+          Profile(),
         ],
       ),
       bottomNavigationBar: Container(

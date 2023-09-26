@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/conections/users.dart';
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
@@ -11,8 +12,19 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String nome = '';
+    carregarDados() {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+      User? usuario = _auth.currentUser;
+      final users = UserRepository().users;
+      // ignore: avoid_function_literals_in_foreach_calls
+      users.forEach((user) {
+        if (user.email == usuario?.email) {
+          nome = user.nome;
+        }
+      });
+    }
 
-    carregarDados() {}
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Padding(
@@ -40,11 +52,11 @@ class ProfilePage extends StatelessWidget {
                 size: 80,
                 color: Colors.black,
               ),
-              title: const Row(
+              title: Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 20, bottom: 5),
-                    child: Text('Guilherme Sanches'),
+                    padding: const EdgeInsets.only(top: 20, bottom: 5),
+                    child: Text(nome),
                   ),
                 ],
               ),
@@ -53,7 +65,7 @@ class ProfilePage extends StatelessWidget {
                 child: Row(
                   children: [
                     InkWell(
-                      onTap: () => print('tap no subtitle'),
+                      onTap: () => {carregarDados()},
                       child: const Text(
                         'Ver perfil',
                         style: TextStyle(
