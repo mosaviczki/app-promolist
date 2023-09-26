@@ -65,7 +65,7 @@ class SecurityPage extends StatelessWidget {
                       child: const Text(
                         'Alterar',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(23, 21, 119, 1),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                         ),
@@ -136,7 +136,7 @@ class SecurityPage extends StatelessWidget {
                       child: const Text(
                         'Desconectar',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(23, 21, 119, 1),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                         ),
@@ -192,7 +192,7 @@ class SecurityPage extends StatelessWidget {
                       child: const Text(
                         'Conectar',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(23, 21, 119, 1),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                         ),
