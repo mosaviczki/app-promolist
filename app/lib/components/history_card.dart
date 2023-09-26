@@ -13,6 +13,7 @@ class _HistoryCardState extends State<HistoryCard> {
     double cardWidth = 315;
     return Column(
       children: [
+        // ignore: sized_box_for_whitespace
         Container(
           width: cardWidth,
           child: const ListTile(

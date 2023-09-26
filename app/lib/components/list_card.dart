@@ -15,6 +15,7 @@ class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      // ignore: avoid_print
       onLongPress: () => print(widget.cardKey),
       onTap: () => Navigator.push(
           context,

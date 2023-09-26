@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/list_card.dart';
-
+import 'package:projeto_dispositivos_moveis/components/maps.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,14 +12,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late GoogleMapController mapController;
+  double lat = -25.072556;
+  double long = -50.152239;
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: const AppBarComponent(),
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         child: Column(
           children: [
             Row(
@@ -31,9 +39,10 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w700,
                       fontSize: 24),
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.exposure_plus_1_outlined)),
+                FloatingActionButton.small(
+                  onPressed: () {},
+                  child: const Icon(Icons.add),
+                ),
               ],
             ),
             const SizedBox(

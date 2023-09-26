@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
 class InputPassword extends StatefulWidget {
-  const InputPassword(
-      {super.key, required this.hintText, required this.backgroundColor});
+  const InputPassword({
+    super.key,
+    required this.hintText,
+    required this.backgroundColor,
+    required this.isController,
+  });
 
   final String hintText;
   final Color backgroundColor;
+  final TextEditingController isController;
   @override
   State<InputPassword> createState() => _InputPasswordState();
 }
@@ -22,7 +27,8 @@ class _InputPasswordState extends State<InputPassword> {
           color: widget.backgroundColor,
           border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
           borderRadius: BorderRadius.circular(30)),
-      child: TextField(
+      child: TextFormField(
+        controller: widget.isController,
         obscureText: obscureText,
         decoration: InputDecoration(
             icon: const Icon(
@@ -32,6 +38,15 @@ class _InputPasswordState extends State<InputPassword> {
             suffixIcon: togglePassword(),
             hintText: widget.hintText,
             border: InputBorder.none),
+        keyboardType: TextInputType.visiblePassword,
+        // ignore: body_might_complete_normally_nullable
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'informe sua senha';
+          } else if (value.length < 6) {
+            return 'sua senha deve ter pelo menos 6 caracteres';
+          }
+        },
       ),
     );
   }
@@ -50,4 +65,3 @@ class _InputPasswordState extends State<InputPassword> {
     );
   }
 }
-

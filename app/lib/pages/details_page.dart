@@ -15,7 +15,7 @@ class _DetailsPagesState extends State<DetailsPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarComponent(),
+      appBar: const AppBarComponent(),
       body: Center(
         child: Container(
           height: 50,

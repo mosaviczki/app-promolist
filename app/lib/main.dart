@@ -1,16 +1,13 @@
 /* import 'package:firebase_core/firebase_core.dart'; */
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
+import 'package:projeto_dispositivos_moveis/widget/auth_check.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  /* await Firebase.initializeApp(); */
-  /* runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MyApp(),
-  )); */
+  await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AuthService()),
@@ -25,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: InitialPage(),
+      home: AuthCheck(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/pages/history_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/home_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_page.dart';
@@ -23,7 +24,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    /*TODO: implement initState*/
     super.initState();
     pageController = PageController(initialPage: paginaAtual);
   }
@@ -36,6 +37,7 @@ class _MainPageState extends State<MainPage> {
         onPageChanged: setPaginaAtual,
         children: const [
           HomePage(),
+          Maps(),
           HistoryPage(),
           ProfilePage(),
         ],
@@ -56,13 +58,16 @@ class _MainPageState extends State<MainPage> {
                 index,
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.ease,
-                
               );
             },
             tabs: const [
               GButton(
                 icon: Icons.home,
                 text: 'Home',
+              ),
+              GButton(
+                icon: Icons.location_on,
+                text: 'Mapa',
               ),
               GButton(
                 icon: Icons.history,

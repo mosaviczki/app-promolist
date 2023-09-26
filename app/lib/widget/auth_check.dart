@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/pages/home_page.dart';
-import 'package:projeto_dispositivos_moveis/pages/login_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +20,11 @@ class _AuthCheckState extends State<AuthCheck> {
     if (auth.isLoading) {
       return loading();
     } else if (auth.usuario == null) {
-      return const LoginPage();
+      print(auth.usuario);
+      return const InitialPage();
     } else {
-      return const HomePage();
+      print(auth.usuario);
+      return const MainPage();
     }
   }
 

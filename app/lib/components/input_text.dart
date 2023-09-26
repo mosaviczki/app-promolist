@@ -8,6 +8,7 @@ class InputText extends StatelessWidget {
     required this.backgroundColor,
     required this.iconData,
     required this.inputType,
+    required this.isController,
     this.inputFormatter = false,
   });
 
@@ -16,6 +17,7 @@ class InputText extends StatelessWidget {
   final Color backgroundColor;
   final TextInputType inputType;
   final bool inputFormatter;
+  final TextEditingController isController;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,13 @@ class InputText extends StatelessWidget {
           color: backgroundColor,
           border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
           borderRadius: BorderRadius.circular(30)),
-      child: TextField(
+      child: TextFormField(
+        controller: isController,
         inputFormatters: inputFormatter
-        ? <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp("[a-zA-Z ]"))]
-        : null,
+            ? <TextInputFormatter>[
+                FilteringTextInputFormatter.allow(RegExp("[a-zA-Z ]"))
+              ]
+            : null,
         keyboardType: inputType,
         decoration: InputDecoration(
             icon: Icon(
