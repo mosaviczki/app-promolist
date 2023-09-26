@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          if (isCardVisible) const InputListCard(),
+          if (isCardVisible)  InputListCard(toggleIsVisible: toggleCardVisibility),
         ],
       ),
     );

@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
 
-class InputListCard extends StatefulWidget {
+class InputListCard extends StatelessWidget {
+  final Function toggleIsVisible;
+
   const InputListCard({
     super.key,
-    required this.isOpen,
+    required this.toggleIsVisible,
   });
 
-  final bool isOpen;
-
-  @override
-  State<InputListCard> createState() => _InputListCardState();
-}
-
-class _InputListCardState extends State<InputListCard> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     TextEditingController textController1 = TextEditingController();
     TextEditingController textController2 = TextEditingController();
-
-    closeCard() {}
 
     return Center(
       child: Container(
@@ -37,8 +30,8 @@ class _InputListCardState extends State<InputListCard> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    onPressed: () => print('teste'),
-                    icon: Icon(Icons.close),
+                    onPressed: () => toggleIsVisible(),
+                    icon: const Icon(Icons.close),
                   ),
                 ],
               ),
@@ -90,7 +83,7 @@ class _InputListCardState extends State<InputListCard> {
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
               Container(
