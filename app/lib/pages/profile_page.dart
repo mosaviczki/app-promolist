@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/pages/personal_info_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
@@ -72,15 +73,16 @@ class ProfilePage extends StatelessWidget {
                   fontSize: 22,
                   fontWeight: FontWeight.w600),
             ),
-            const ListTile(
-              leading: Icon(Icons.person_outline_rounded, color: Colors.black),
-              title: Text('Informações pessoais'),
-              trailing: Icon(
+            ListTile(
+              leading: const Icon(Icons.person_outline_rounded, color: Colors.black),
+              title: const Text('Informações pessoais'),
+              trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.black,
                 size: 30,
               ),
-              contentPadding: EdgeInsets.only(top: 5, right: 15),
+              contentPadding: const EdgeInsets.only(top: 5, right: 15),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: ((context) => const PersonalInfoPage()))),
             ),
             const Padding(
               padding: EdgeInsets.only(right: 25),
