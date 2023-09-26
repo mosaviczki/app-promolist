@@ -37,15 +37,16 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  login() {
+  login() async {
     setState(() => loading = true);
     try {
-      context
+      await context
           .read<AuthService>()
           .login(_emailController.text, _senhaController.text);
-      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("Logado com sucesso"), backgroundColor: Colors.green));
+          content: Text('Logado com sucesso'), backgroundColor: Colors.green));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
@@ -63,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: const AppBarComponent(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Form(
             key: formKey,
             child: Column(
@@ -131,17 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   child: MaterialButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        if (isLogin) {
-                          login();
-                        } else {
-                          return;
-                        }
+                      if (isLogin) {
+                        login();
                       }
-                      /*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainPage()));*/
                     },
                     child: const Text(
                       "ENTRAR",

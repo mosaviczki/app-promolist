@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/conections/users.dart';
+import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
@@ -8,6 +10,9 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String nome = '';
+
+    carregarDados() {}
     return Scaffold(
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Padding(
@@ -150,6 +155,8 @@ class ProfilePage extends StatelessWidget {
             TextButton.icon(
               onPressed: () {
                 AuthService().logout();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => InitialPage()));
               },
               icon: const Icon(
                 Icons.exit_to_app,

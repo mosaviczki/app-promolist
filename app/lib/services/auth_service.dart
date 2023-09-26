@@ -25,17 +25,10 @@ class AuthService extends ChangeNotifier {
 
   _getUser() {
     usuario = _auth.currentUser;
-/*     if (usuario != null) {
-      setState(() {
-        nome = usuario.displayName!;
-        email = usuario.email;
-        telefone = usuario.phoneNumber;
-      });
-    } */
     notifyListeners();
   }
 
-  register(String nome, String email, String phone, String senha) async {
+  register(String email, String senha) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: senha);
       _getUser();
@@ -53,6 +46,7 @@ class AuthService extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
+      print(e.code);
       if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
         throw AuthException("Email e/ou senha incorreta");
       }
