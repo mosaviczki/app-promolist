@@ -29,13 +29,15 @@ class _SignUpPageState extends State<SignUpPage> {
 
   register() async {
     try {
-      await context
-          .read<AuthService>()
-          .register(_emailController.text, _senhaController.text);
+      await context.read<AuthService>().register(_nomeController.text,
+          _emailController.text, _phoneController.text, _senhaController.text);
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Cadastrado com sucesso"), backgroundColor: Colors.green));
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message)));
+          .showSnackBar(SnackBar(content: Text(e.message), backgroundColor: Colors.red));
     }
   }
 
@@ -114,6 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   if (!isLogin) {
                     register();
                   } else {
+                    // ignore: avoid_print
                     print("Falha");
                   }
                 },
