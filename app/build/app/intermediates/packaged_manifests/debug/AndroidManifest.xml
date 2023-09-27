@@ -31,9 +31,11 @@
         android:debuggable="true"
         android:icon="@mipmap/launcher_icon"
         android:label="Promolist" >
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD7jnQYXoa3h9d_nHnHxLM1ZQZ38NcP-7w" />
+
+        <!--
+             <meta-data android:name="com.google.android.geo.API_KEY"
+                android:value="@string/MAPS_KEY" />
+        -->
 
         <activity
             android:name="com.example.projeto_dispositivos_moveis.MainActivity"

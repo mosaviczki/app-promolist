@@ -20,18 +20,7 @@ class _InputListCardState extends State<InputListCard> {
     TextEditingController cardTitleController = TextEditingController();
     TextEditingController itemNameController = TextEditingController();
     TextEditingController quantityController = TextEditingController();
-    List<Itens> listaItem = [
-      Itens(nome: 'teste', quantidade: 3),
-      Itens(nome: 'teste2', quantidade: 3),
-    ];
-
-    handleAdd() {
-      setState(() {
-        listaItem.add(Itens(
-            nome: itemNameController.text,
-            quantidade: int.parse(quantityController.text)));
-      });
-    }
+    List<Itens> listaItem = [];
 
     return Center(
       child: Container(

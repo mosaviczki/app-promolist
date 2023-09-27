@@ -24,11 +24,7 @@ class InputText extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: size.width * 0.7,
-      decoration: BoxDecoration(
-          color: backgroundColor,
-          border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
-          borderRadius: BorderRadius.circular(30)),
+      width: size.width * 0.8,
       child: TextFormField(
         controller: isController,
         inputFormatters: inputFormatter
@@ -38,12 +34,12 @@ class InputText extends StatelessWidget {
             : null,
         keyboardType: inputType,
         decoration: InputDecoration(
-            icon: Icon(
+            prefixIcon: Icon(
               iconData,
               color: const Color.fromRGBO(59, 81, 108, 1),
             ),
             hintText: hintText,
-            border: InputBorder.none),
+            border: const OutlineInputBorder()),
       ),
     );
   }
