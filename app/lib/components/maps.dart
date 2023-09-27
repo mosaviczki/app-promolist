@@ -35,13 +35,16 @@ class _MapsState extends State<Maps> {
     };
 
     return Scaffold(
-        body: GoogleMap(
-            mapType: MapType.normal,
-            onMapCreated: _onMapCreated,
-            markers: markers,
-            initialCameraPosition: CameraPosition(
-              target: LatLng(lat, long),
-              zoom: 17.0,
-            )));
+      body: GoogleMap(
+        mapType: MapType.normal,
+        onMapCreated: _onMapCreated,
+        markers: markers,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(lat, long),
+          zoom: 17.0,
+        ),
+        zoomControlsEnabled: false,
+      ),
+    );
   }
 }
