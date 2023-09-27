@@ -109,10 +109,9 @@ class _InputListCardState extends State<InputListCard> {
                         child: IconButton(
                           onPressed: () {
                             setState(() {
-                              listaItem.add(Itens(
-                                  nome: itemNameController.text,
-                                  quantidade:
-                                      int.parse(quantityController.text)));
+                              listaItem
+                                  .add(Itens(nome: 'teste', quantidade: 2));
+                              print('adicionou');
                             });
                           },
                           icon: const Icon(
@@ -155,7 +154,9 @@ class _InputListCardState extends State<InputListCard> {
                 height: 30,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  print(listaItem);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   minimumSize: Size(size.width * 0.4, size.height * 0.05),
