@@ -15,6 +15,7 @@ class _InitialPageState extends State<InitialPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: Column(children: <Widget>[
         Container(
