@@ -113,7 +113,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       borderRadius: BorderRadius.circular(10)),
                   child: MaterialButton(
                     onPressed: () {
-                      register();
+                      if (formKey.currentState!.validate()){
+                        register();
+                      }
                     },
                     child: const Text(
                       "CADASTRAR",

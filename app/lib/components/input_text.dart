@@ -33,6 +33,11 @@ class InputText extends StatelessWidget {
               ]
             : null,
         keyboardType: inputType,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'O campo é obrigatória';
+          }
+        },
         decoration: InputDecoration(
             prefixIcon: Icon(
               iconData,

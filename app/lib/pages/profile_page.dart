@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/conections/users.dart';
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/personal_info_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/privacy_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/security_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/terms_page.dart';
+import 'package:projeto_dispositivos_moveis/repositories/user_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class ProfilePage extends StatefulWidget {

@@ -135,8 +135,10 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10)),
                   child: MaterialButton(
                     onPressed: () {
-                      if (isLogin) {
-                        login();
+                      if (formKey.currentState!.validate()) {
+                        if (isLogin) {
+                          login();
+                        }
                       }
                     },
                     child: const Text(

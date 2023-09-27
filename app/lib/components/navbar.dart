@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/conections/users.dart';
 import 'package:projeto_dispositivos_moveis/pages/history_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_page.dart';
+import 'package:projeto_dispositivos_moveis/repositories/user_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class NavBar extends StatefulWidget {
@@ -18,7 +18,6 @@ class _NavBarState extends State<NavBar> {
   String nome = '';
   String email = '';
 
-
   carregarDados() {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     User? usuario = _auth.currentUser;
@@ -29,7 +28,6 @@ class _NavBarState extends State<NavBar> {
         setState(() {
           nome = user.nome;
           email = user.email;
-
         });
       }
     });
@@ -56,8 +54,7 @@ class _NavBarState extends State<NavBar> {
                 size: 70,
               ),
             ),
-            decoration:
-                const BoxDecoration(color: Colors.blue),
+            decoration: const BoxDecoration(color: Colors.blue),
           ),
           ListTile(
             leading: const Icon(

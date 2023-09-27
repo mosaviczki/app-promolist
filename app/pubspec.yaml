@@ -59,6 +59,7 @@ flutter:
     - assets/plus_icon.png
     - assets/google_icon.png
     - assets/supermercado.jpg
+    - assets/maps.png
 
   fonts:
     - family: Poppins

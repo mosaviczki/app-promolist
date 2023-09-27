@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/model/users.dart';
 
 class UserRepository extends ChangeNotifier {
   // ignore: unused_field
@@ -13,12 +14,4 @@ class UserRepository extends ChangeNotifier {
   ];
 
   List<Users> get users => _users;
-}
-
-class Users {
-  String nome;
-  String telefone;
-  String email;
-
-  Users({required this.nome, required this.telefone, required this.email});
 }

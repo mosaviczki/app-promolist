@@ -38,7 +38,7 @@ class _InputPasswordState extends State<InputPassword> {
         // ignore: body_might_complete_normally_nullable
         validator: (value) {
           if (value!.isEmpty) {
-            return 'informe sua senha';
+            return 'Senha é obrigatória';
           } else if (value.length < 6) {
             return 'sua senha deve ter pelo menos 6 caracteres';
           }
