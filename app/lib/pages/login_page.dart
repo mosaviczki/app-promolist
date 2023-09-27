@@ -43,10 +43,12 @@ class _LoginPageState extends State<LoginPage> {
       await context
           .read<AuthService>()
           .login(_emailController.text, _senhaController.text);
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Logado com sucesso'), backgroundColor: Colors.green));
+      // ignore: use_build_context_synchronously
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MainPage()));
+          context, MaterialPageRoute(builder: (context) => const MainPage()));
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
@@ -130,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: size.width * 0.7,
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 26, 43, 64),
-                      borderRadius: BorderRadius.circular(30)),
+                      borderRadius: BorderRadius.circular(10)),
                   child: MaterialButton(
                     onPressed: () {
                       if (isLogin) {
@@ -193,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                /* Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Padding(
@@ -243,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         )),
                   ],
-                ), */
+                ),
                 const SizedBox(height: 30)
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
+import 'package:projeto_dispositivos_moveis/components/input_text.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -9,6 +10,7 @@ class RecoveryPage extends StatefulWidget {
 }
 
 class _RecoveryPageState extends State<RecoveryPage> {
+  final TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -58,30 +60,20 @@ class _RecoveryPageState extends State<RecoveryPage> {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-            width: size.width * 0.78,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
-                borderRadius: BorderRadius.circular(30)),
-            child: const TextField(
-              decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.email_outlined,
-                    color: Color.fromRGBO(59, 81, 108, 1),
-                  ),
-                  hintText: "Email",
-                  border: InputBorder.none),
-            ),
+          InputText(
+            hintText: 'Email',
+            backgroundColor: Colors.white,
+            iconData: Icons.email,
+            inputType: TextInputType.emailAddress,
+            isController: _emailController,
           ),
           const SizedBox(height: 20),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-            width: size.width * 0.78,
+            width: size.width * 0.7,
             decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 26, 43, 64),
-                borderRadius: BorderRadius.circular(30)),
+                borderRadius: BorderRadius.circular(10)),
             child: MaterialButton(
               onPressed: () {},
               child: const Text(

@@ -18,7 +18,8 @@ com.example.projeto_dispositivos_moveis.app-mergeDebugResources-16 C:\src\flutte
 com.example.projeto_dispositivos_moveis.app-merged_res-17 C:\src\flutter-projects\flutter\promolist\app\build\app\intermediates\merged_res\debug
 com.example.projeto_dispositivos_moveis.app-packaged_res-18 C:\src\flutter-projects\flutter\promolist\app\build\firebase_auth\intermediates\packaged_res\debug
 com.example.projeto_dispositivos_moveis.app-packaged_res-19 C:\src\flutter-projects\flutter\promolist\app\build\firebase_core\intermediates\packaged_res\debug
-com.example.projeto_dispositivos_moveis.app-packaged_res-20 C:\src\flutter-projects\flutter\promolist\app\build\flutter_native_splash\intermediates\packaged_res\debug
-com.example.projeto_dispositivos_moveis.app-packaged_res-21 C:\src\flutter-projects\flutter\promolist\app\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
-com.example.projeto_dispositivos_moveis.app-packaged_res-22 C:\src\flutter-projects\flutter\promolist\app\build\google_maps_flutter_android\intermediates\packaged_res\debug
-com.example.projeto_dispositivos_moveis.app-packaged_res-23 C:\src\flutter-projects\flutter\promolist\app\build\path_provider_android\intermediates\packaged_res\debug
+com.example.projeto_dispositivos_moveis.app-packaged_res-20 C:\src\flutter-projects\flutter\promolist\app\build\flutter_config\intermediates\packaged_res\debug
+com.example.projeto_dispositivos_moveis.app-packaged_res-21 C:\src\flutter-projects\flutter\promolist\app\build\flutter_native_splash\intermediates\packaged_res\debug
+com.example.projeto_dispositivos_moveis.app-packaged_res-22 C:\src\flutter-projects\flutter\promolist\app\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
+com.example.projeto_dispositivos_moveis.app-packaged_res-23 C:\src\flutter-projects\flutter\promolist\app\build\google_maps_flutter_android\intermediates\packaged_res\debug
+com.example.projeto_dispositivos_moveis.app-packaged_res-24 C:\src\flutter-projects\flutter\promolist\app\build\path_provider_android\intermediates\packaged_res\debug

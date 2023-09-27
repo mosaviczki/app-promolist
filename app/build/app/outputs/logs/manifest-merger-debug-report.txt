@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:2:5-36:19
+INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:2:5-37:19
 MERGED from [:firebase_auth] C:\src\flutter-projects\flutter\promolist\app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_auth] C:\src\flutter-projects\flutter\promolist\app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_core] C:\src\flutter-projects\flutter\promolist\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
@@ -34,15 +34,16 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gu
 	android:name
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
-MERGED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
+ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
+MERGED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
 MERGED from [:firebase_auth] C:\src\flutter-projects\flutter\promolist\app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] C:\src\flutter-projects\flutter\promolist\app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:google_maps_flutter_android] C:\src\flutter-projects\flutter\promolist\app\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\src\flutter-projects\flutter\promolist\app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_config] C:\src\flutter-projects\flutter\promolist\app\build\flutter_config\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] C:\src\flutter-projects\flutter\promolist\app\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_native_splash] C:\src\flutter-projects\flutter\promolist\app\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:22.1.2] C:\Users\guitd\.gradle\caches\transforms-3\b0ca8343782f11ae81ab2aaf9a75a7d1\transformed\jetified-firebase-auth-22.1.2\AndroidManifest.xml:17:1-75:12
@@ -83,15 +84,15 @@ INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\debu
 INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 	package
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:1-38:12
 		INJECTED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\src\flutter-projects\flutter\promolist\app\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -107,6 +108,8 @@ MERGED from [:google_maps_flutter_android] C:\src\flutter-projects\flutter\promo
 MERGED from [:google_maps_flutter_android] C:\src\flutter-projects\flutter\promolist\app\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\src\flutter-projects\flutter\promolist\app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\src\flutter-projects\flutter\promolist\app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_config] C:\src\flutter-projects\flutter\promolist\app\build\flutter_config\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_config] C:\src\flutter-projects\flutter\promolist\app\build\flutter_config\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\src\flutter-projects\flutter\promolist\app\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\src\flutter-projects\flutter\promolist\app\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_native_splash] C:\src\flutter-projects\flutter\promolist\app\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41

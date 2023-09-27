@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
         onPressed: () => print('tap'),
         child: const Icon(Icons.add),
       ),
-      body: const Maps(),
+      body: Text('main'),
     );
   }
 }

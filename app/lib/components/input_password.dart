@@ -22,22 +22,18 @@ class _InputPasswordState extends State<InputPassword> {
     Size size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: size.width * 0.7,
-      decoration: BoxDecoration(
-          color: widget.backgroundColor,
-          border: Border.all(color: const Color.fromRGBO(12, 17, 23, 1)),
-          borderRadius: BorderRadius.circular(30)),
+      width: size.width * 0.8,
       child: TextFormField(
         controller: widget.isController,
         obscureText: obscureText,
         decoration: InputDecoration(
-            icon: const Icon(
+            prefixIcon: const Icon(
               Icons.lock,
               color: Color.fromRGBO(59, 81, 108, 1),
             ),
             suffixIcon: togglePassword(),
             hintText: widget.hintText,
-            border: InputBorder.none),
+            border: const OutlineInputBorder()),
         keyboardType: TextInputType.visiblePassword,
         // ignore: body_might_complete_normally_nullable
         validator: (value) {
