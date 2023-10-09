@@ -160,9 +160,9 @@ class _AddCardPageState extends State<AddCardPage> {
               child: Scrollbar(
                 thumbVisibility: true,
                 child: ListView.separated(
-                  itemBuilder: (context, index) =>  ListTile(
-                    visualDensity:  const VisualDensity(vertical: -3),
-                    leading:  const Padding(
+                  itemBuilder: (context, index) => ListTile(
+                    visualDensity: const VisualDensity(vertical: -3),
+                    leading: const Padding(
                       padding: EdgeInsets.only(top: 5),
                       child: Icon(
                         Icons.circle,
@@ -172,11 +172,20 @@ class _AddCardPageState extends State<AddCardPage> {
                     title: Row(
                       children: [
                         Text(listaItens[index].nome),
-                        const SizedBox(width: 100,),
+                        const SizedBox(
+                          width: 100,
+                        ),
                         Text(listaItens[index].quantidade.toString()),
                       ],
                     ),
-                    trailing:  const Icon(Icons.delete),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        setState(() {
+                          listaItens.remove(listaItens[index]);
+                        });
+                      },
+                    ),
                   ),
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 5,
@@ -188,13 +197,15 @@ class _AddCardPageState extends State<AddCardPage> {
             const SizedBox(
               height: 20,
             ),
+            listaItens.isNotEmpty ? 
             SizedBox(
               width: 200,
               child: ElevatedButton(
                 child: const Text('Salvar Lista'),
                 onPressed: () => saveCard(),
               ),
-            ),
+            )
+            : SizedBox(),
           ],
         ),
       ),
