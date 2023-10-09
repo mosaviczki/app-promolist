@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/pages/details_page.dart';
+import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/details_page.dart';
 
 class ListCard extends StatefulWidget {
-   ListCard({
+  ListCard({
     super.key,
-    required this.title,
+    required this.card,
   });
 
-  String title;
+  CardsModel card;
 
   @override
   State<ListCard> createState() => _ListCardState();
@@ -20,7 +21,7 @@ class _ListCardState extends State<ListCard> {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const DetailsPages(),
+            builder: (context) =>  DetailsPages(card: widget.card),
           )),
       child: Container(
         width: 150,
@@ -32,11 +33,11 @@ class _ListCardState extends State<ListCard> {
           ),
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
-        child:  Center(
+        child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              widget.title,
+              widget.card.titulo,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: const TextStyle(

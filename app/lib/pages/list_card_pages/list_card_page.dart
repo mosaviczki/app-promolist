@@ -57,7 +57,7 @@ class _ListCardPageState extends State<ListCardPage> {
               child: ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) =>  ListCard(title: cardsRepository.lista[index].titulo),
+                itemBuilder: (context, index) =>  ListCard(card: cardsRepository.lista[index]),
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 20,
                 ),

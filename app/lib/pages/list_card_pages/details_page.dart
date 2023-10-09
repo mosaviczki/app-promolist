@@ -1,18 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
+import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
+import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
+import 'package:provider/provider.dart';
 
 class DetailsPages extends StatefulWidget {
-  const DetailsPages({
+  DetailsPages({
     super.key,
+    required this.card,
   });
 
+  CardsModel card;
   @override
   State<DetailsPages> createState() => _DetailsPagesState();
 }
 
 class _DetailsPagesState extends State<DetailsPages> {
+  late CardRepository cardsRepository;
+
+  void incrementValue(CardsModel card, int index) {
+    setState(() {
+      card.listaItens[index].quantidade++;
+    });
+  }
+
+  void decrementValue(CardsModel card, int index) {
+    setState(() {
+      if (card.listaItens[index].quantidade != 1) {
+        card.listaItens[index].quantidade--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    cardsRepository = Provider.of<CardRepository>(context);
     return Scaffold(
       appBar: const AppBarComponent(),
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
@@ -21,10 +43,10 @@ class _DetailsPagesState extends State<DetailsPages> {
           const SizedBox(
             height: 25,
           ),
-          const Row(
+           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('titulo'),
+              Text(widget.card.titulo),
             ],
           ),
           const SizedBox(
@@ -36,8 +58,8 @@ class _DetailsPagesState extends State<DetailsPages> {
                 horizontal: 30,
               ),
               itemBuilder: (context, index) => ListTile(
-                title: const Text(
-                  'teste',
+                title: Text(
+                  widget.card.listaItens[index].nome,
                   overflow: TextOverflow.ellipsis,
                 ),
                 leading: const Icon(Icons.shopping_bag_rounded),
@@ -45,12 +67,16 @@ class _DetailsPagesState extends State<DetailsPages> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        decrementValue(widget.card, index);
+                      },
                       icon: const Icon(Icons.remove),
                     ),
-                    const Text('quantidade'),
+                    Text(widget.card.listaItens[index].quantidade.toString()),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        incrementValue(widget.card, index);
+                      },
                       icon: const Icon(Icons.add),
                     ),
                   ],
@@ -59,7 +85,7 @@ class _DetailsPagesState extends State<DetailsPages> {
               separatorBuilder: (context, index) => const SizedBox(
                 height: 10,
               ),
-              itemCount: 5,
+              itemCount: widget.card.listaItens.length,
             ),
           ),
         ],
