@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/model/itens.dart';
+import 'package:projeto_dispositivos_moveis/model/item_model.dart';
 
 class InputListCard extends StatefulWidget {
   final Function toggleIsVisible;
@@ -20,7 +20,7 @@ class _InputListCardState extends State<InputListCard> {
     TextEditingController cardTitleController = TextEditingController();
     TextEditingController itemNameController = TextEditingController();
     TextEditingController quantityController = TextEditingController();
-    List<Itens> listaItem = [];
+    List<ItemModel> listaItem = [];
 
     return Center(
       child: Container(
@@ -99,7 +99,7 @@ class _InputListCardState extends State<InputListCard> {
                           onPressed: () {
                             setState(() {
                               listaItem
-                                  .add(Itens(nome: 'teste', quantidade: 2));
+                                  .add(ItemModel(nome: 'teste', quantidade: 2));
                               print('adicionou');
                             });
                           },

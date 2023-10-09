@@ -1,9 +1,9 @@
-import 'package:projeto_dispositivos_moveis/model/itens.dart';
+import 'package:projeto_dispositivos_moveis/model/item_model.dart';
 
 class CardsModel {
   int id;
   String titulo;
-  List<Itens> listaItens;
+  List<ItemModel> listaItens;
 
   CardsModel({
     required this.id,

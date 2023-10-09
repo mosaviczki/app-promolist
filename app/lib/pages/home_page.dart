@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/input_list_card.dart';
-import 'package:projeto_dispositivos_moveis/components/list_card.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
-import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  var cards = CardRepository.cards;
+
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +86,8 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
-                          ListCard(cardKey: cards.toString(), title:cards[index].titulo,listaItens: cards[index].listaItens),
-                      itemCount: cards.length,
+                          const ListCard(),
+                      itemCount: 2,
                       separatorBuilder: (context, index) =>
                           const VerticalDivider(
                         width: 10,

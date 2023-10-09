@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/pages/history_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
-import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
-import 'package:projeto_dispositivos_moveis/pages/profile_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/profile_pages/profile_page.dart';
 import 'package:projeto_dispositivos_moveis/repositories/user_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
@@ -73,7 +73,7 @@ class _NavBarState extends State<NavBar> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const MainPage(),
+                builder: (context) => const ListCardPage(),
               ),
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
 
 class MainPage extends StatefulWidget {

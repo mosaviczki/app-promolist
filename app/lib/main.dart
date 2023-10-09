@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 import 'package:projeto_dispositivos_moveis/widget/auth_check.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AuthService()),
+      ChangeNotifierProvider(create: (context) => CardRepository()),
     ],
     child: const MyApp(),
   ));

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
-import 'package:projeto_dispositivos_moveis/model/itens.dart';
 
 class DetailsPages extends StatefulWidget {
   const DetailsPages({
     super.key,
-    required this.titulo,
-    required this.listaItem,
   });
 
-  final String titulo;
-  final List<Itens> listaItem;
   @override
   State<DetailsPages> createState() => _DetailsPagesState();
 }
@@ -26,10 +21,10 @@ class _DetailsPagesState extends State<DetailsPages> {
           const SizedBox(
             height: 25,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(widget.titulo),
+              Text('titulo'),
             ],
           ),
           const SizedBox(
@@ -41,8 +36,8 @@ class _DetailsPagesState extends State<DetailsPages> {
                 horizontal: 30,
               ),
               itemBuilder: (context, index) => ListTile(
-                title: Text(
-                  widget.listaItem[index].nome,
+                title: const Text(
+                  'teste',
                   overflow: TextOverflow.ellipsis,
                 ),
                 leading: const Icon(Icons.shopping_bag_rounded),
@@ -50,20 +45,12 @@ class _DetailsPagesState extends State<DetailsPages> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.listaItem[index].quantidade -= 1;
-                        });
-                      },
+                      onPressed: () {},
                       icon: const Icon(Icons.remove),
                     ),
-                    Text('${widget.listaItem[index].quantidade}'),
+                    const Text('quantidade'),
                     IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.listaItem[index].quantidade += 1;
-                        });
-                      },
+                      onPressed: () {},
                       icon: const Icon(Icons.add),
                     ),
                   ],
@@ -72,7 +59,7 @@ class _DetailsPagesState extends State<DetailsPages> {
               separatorBuilder: (context, index) => const SizedBox(
                 height: 10,
               ),
-              itemCount: widget.listaItem.length,
+              itemCount: 5,
             ),
           ),
         ],
