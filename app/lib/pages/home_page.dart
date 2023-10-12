@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  SizedBox(
+                  /* SizedBox(
                     height: 50,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                         width: 10,
                       ),
                     ),
-                  ),
+                  ), */
                   const SizedBox(
                     height: 30,
                   ),

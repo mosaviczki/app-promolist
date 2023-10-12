@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/details_page.dart';
 
+// ignore: must_be_immutable
 class ListCard extends StatefulWidget {
   ListCard({
     super.key,
