@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/database/db_firestore.dart';
 
 class AuthException implements Exception {
   String message;
@@ -10,6 +12,7 @@ class AuthService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User? usuario;
   bool isLoading = true;
+  late FirebaseFirestore db;
 
   AuthService() {
     _authCheck();
@@ -28,9 +31,13 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
   }
 
-  register(String email, String senha) async {
+  register(String email, String senha, String nome) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: senha);
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: senha)
+          .then((UserCredential userCredential) {
+        userCredential.user!.updateDisplayName(nome);
+      });
       _getUser();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -39,6 +46,10 @@ class AuthService extends ChangeNotifier {
         throw AuthException("Esse email já esta cadastrado");
       }
     }
+  }
+
+  _startFirestore() {
+    db = DBFirestore.get();
   }
 
   login(String email, String senha) async {

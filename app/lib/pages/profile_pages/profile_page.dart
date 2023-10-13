@@ -5,7 +5,6 @@ import 'package:projeto_dispositivos_moveis/pages/profile_pages/personal_info_pa
 import 'package:projeto_dispositivos_moveis/pages/profile_pages/privacy_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_pages/security_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_pages/terms_page.dart';
-import 'package:projeto_dispositivos_moveis/repositories/user_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,19 +20,15 @@ class _ProfilePageState extends State<ProfilePage> {
   String telefone = '';
 
   carregarDados() {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    User? usuario = _auth.currentUser;
-    final users = UserRepository().users;
+    User? usuario = FirebaseAuth.instance.currentUser;
     // ignore: avoid_function_literals_in_foreach_calls
-    users.forEach((user) {
-      if (user.email == usuario?.email) {
-        setState(() {
-          nome = user.nome;
-          email = user.email;
-          telefone = user.telefone;
-        });
-      }
-    });
+    if (usuario != null) {
+      setState(() {
+        nome = usuario.displayName!;
+        email = usuario.email!;
+      });
+    }
+    ;
   }
 
   @override
@@ -116,8 +111,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PersonalInfoPage(
-                            email: email, nome: nome, telefone: telefone))),
+                        builder: (context) =>
+                            PersonalInfoPage(email: email, nome: nome))),
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 25),

@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/app_bar.dart';
 import 'package:projeto_dispositivos_moveis/components/input_password.dart';
@@ -33,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
     try {
       await context
           .read<AuthService>()
-          .register(_emailController.text, _senhaController.text);
+          .register(_emailController.text, _senhaController.text, _nomeController.text);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Cadastrado com sucesso'),
           backgroundColor: Colors.green));
@@ -113,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       borderRadius: BorderRadius.circular(10)),
                   child: MaterialButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()){
+                      if (formKey.currentState!.validate()) {
                         register();
                       }
                     },
