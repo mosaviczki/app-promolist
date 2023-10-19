@@ -19,6 +19,7 @@ class _NavBarState extends State<NavBar> {
   String email = '';
 
   carregarDados() {
+    // ignore: no_leading_underscores_for_local_identifiers
     final FirebaseAuth _auth = FirebaseAuth.instance;
     User? usuario = _auth.currentUser;
     final users = UserRepository().users;

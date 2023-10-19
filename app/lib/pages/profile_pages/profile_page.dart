@@ -28,7 +28,6 @@ class _ProfilePageState extends State<ProfilePage> {
         email = usuario.email!;
       });
     }
-    ;
   }
 
   @override

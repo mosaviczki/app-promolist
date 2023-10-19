@@ -48,6 +48,7 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+  // ignore: unused_element
   _startFirestore() {
     db = DBFirestore.get();
   }

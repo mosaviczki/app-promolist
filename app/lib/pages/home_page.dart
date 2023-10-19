@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/input_list_card.dart';
-import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 
 

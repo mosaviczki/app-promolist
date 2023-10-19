@@ -5,14 +5,14 @@ import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 
 
 class CardRepository extends ChangeNotifier {
-  List<CardsModel> _lista = [];
+  final List<CardsModel> _lista = [];
 
   UnmodifiableListView<CardsModel> get lista => UnmodifiableListView(_lista);
 
   saveAll(List<CardsModel> cards) {
-    cards.forEach((card) {
+    for (var card in cards) {
       if (!_lista.contains(card)) _lista.add(card);
-    });
+    }
     notifyListeners();
   }
 

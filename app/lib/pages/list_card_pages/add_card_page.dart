@@ -205,7 +205,7 @@ class _AddCardPageState extends State<AddCardPage> {
                 onPressed: () => saveCard(),
               ),
             )
-            : SizedBox(),
+            : const SizedBox(),
           ],
         ),
       ),

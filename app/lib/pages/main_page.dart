@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
+import 'package:projeto_dispositivos_moveis/pages/address.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -35,27 +36,35 @@ class _MainPageState extends State<MainPage> {
           onPressed: () => print('tap'),
           child: const Icon(Icons.add),
         ),
-        body: const Stack(children: [
+        body: Stack(children: [
           Column(
             children: <Widget>[
               Center(
-                  child: Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(Icons.house_outlined),
-                          SizedBox(width: 10),
-                          Text(
-                            "R. Dep. Chafic Cury, Ponta Grossa",
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20,
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddressPage()));
+                    },
+                    child: const Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.house_outlined),
+                            SizedBox(width: 10),
+                            Text(
+                              "R. Dep. Chafic Cury, Ponta Grossa",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                              ),
                             ),
-                          ),
-                        ],
-                      ))),
-              Expanded(child: Maps()),
+                          ],
+                        ))),
+              ),
+              const Expanded(child: Maps()),
             ],
           )
         ]));

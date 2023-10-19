@@ -6,13 +6,13 @@ class InputText extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.backgroundColor,
-    required this.iconData,
+    this.iconData,
     required this.inputType,
     required this.isController,
     this.inputFormatter = false,
   });
 
-  final IconData iconData;
+  final IconData? iconData;
   final String hintText;
   final Color backgroundColor;
   final TextInputType inputType;
@@ -37,6 +37,7 @@ class InputText extends StatelessWidget {
           if (value!.isEmpty) {
             return 'O campo é obrigatória';
           }
+          return null;
         },
         decoration: InputDecoration(
             prefixIcon: Icon(

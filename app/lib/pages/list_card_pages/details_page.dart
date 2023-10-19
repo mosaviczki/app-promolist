@@ -4,6 +4,7 @@ import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class DetailsPages extends StatefulWidget {
   DetailsPages({
     super.key,
