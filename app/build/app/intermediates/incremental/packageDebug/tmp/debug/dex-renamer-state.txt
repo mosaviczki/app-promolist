@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Mon Oct 09 07:49:07 BRT 2023
+=======
+#Wed Sep 27 15:28:27 BRT 2023
+>>>>>>> 02cf4d4 (fix: fixing nav bar items)
 base.0=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 base.1=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.0=classes.dex
