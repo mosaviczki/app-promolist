@@ -11,7 +11,9 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AuthService()),
-      ChangeNotifierProvider(create: (context) => CardRepository()),
+      ChangeNotifierProvider(create: (context) => CardRepository(
+        auth: context.read<AuthService>(),
+      )),
     ],
     child: const MyApp(),
   ));

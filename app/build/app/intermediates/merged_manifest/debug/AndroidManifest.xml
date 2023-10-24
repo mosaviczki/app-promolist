@@ -31,11 +31,9 @@
         android:debuggable="true"
         android:icon="@mipmap/launcher_icon"
         android:label="Promolist" >
-
-        <!--
-             <meta-data android:name="com.google.android.geo.API_KEY"
-                android:value="@string/MAPS_KEY" />
-        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDM-h30R5TeR1fPT_dSVkj2rk0l260Hb-s" />
 
         <activity
             android:name="com.example.projeto_dispositivos_moveis.MainActivity"
@@ -78,10 +76,16 @@
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
+                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
 

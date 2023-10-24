@@ -14,6 +14,17 @@ class ListCardPage extends StatefulWidget {
 class _ListCardPageState extends State<ListCardPage> {
   late CardRepository cardsRepository;
 
+  void mostrarAviso(BuildContext context, String mensagem) {
+    final snackBar = SnackBar(
+      content: Text(mensagem),
+      duration:
+          const Duration(seconds: 4), // Duração da notificação em segundos
+        backgroundColor: Colors.red[300],
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     cardsRepository = Provider.of<CardRepository>(context);
@@ -32,20 +43,35 @@ class _ListCardPageState extends State<ListCardPage> {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 )),
           ),
-          SizedBox(
+          Container(
             width: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+            ),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AddCardPage(),
-                  ),
-                );
+                if (cardsRepository.lista.length >= 4) {
+                  mostrarAviso(context,
+                      'Quantidade máxima de Listas de compras atingida!');
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddCardPage(),
+                    ),
+                  );
+                }
               },
-              child: const Text('Nova lista'),
+              child: const Text(
+                'Adicionar lista',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins',
+                ),
+              ),
             ),
           ),
           const SizedBox(
@@ -57,7 +83,8 @@ class _ListCardPageState extends State<ListCardPage> {
               child: ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) =>  ListCard(card: cardsRepository.lista[index]),
+                itemBuilder: (context, index) =>
+                    ListCard(card: cardsRepository.lista[index]),
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 20,
                 ),

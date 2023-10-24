@@ -32,7 +32,7 @@ class _ListCardState extends State<ListCard> {
             width: 0.8,
             color: Colors.blue,
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
         child: Center(
           child: Padding(

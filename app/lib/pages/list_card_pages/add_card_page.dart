@@ -36,7 +36,6 @@ class _AddCardPageState extends State<AddCardPage> {
     setState(() {
       List<CardsModel> listaCards = [
         CardsModel(
-          id: 12,
           titulo: _titleController.text,
           listaItens: listaItens,
         ),
@@ -55,6 +54,7 @@ class _AddCardPageState extends State<AddCardPage> {
       _itemController.clear();
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
