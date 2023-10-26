@@ -61,13 +61,12 @@ class _LoginPageState extends State<LoginPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: const AppBarComponent(),
       body: SingleChildScrollView(
         reverse: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(
             key: formKey,
             child: Column(
@@ -128,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 10),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 20),
                   width: size.width * 0.7,
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 26, 43, 64),

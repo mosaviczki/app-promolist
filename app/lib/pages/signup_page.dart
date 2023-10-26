@@ -30,9 +30,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   register() async {
     try {
-      await context
-          .read<AuthService>()
-          .register(_emailController.text, _senhaController.text, _nomeController.text);
+      await context.read<AuthService>().register(
+          _emailController.text, _senhaController.text, _nomeController.text);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Cadastrado com sucesso'),
           backgroundColor: Colors.green));
@@ -49,7 +48,6 @@ class _SignUpPageState extends State<SignUpPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: const AppBarComponent(),
       body: SingleChildScrollView(
