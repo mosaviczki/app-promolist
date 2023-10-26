@@ -16,7 +16,7 @@ class _ListCardPageState extends State<ListCardPage> {
 
   void mostrarAviso(BuildContext context, String mensagem) {
     final snackBar = SnackBar(
-      content: Text(mensagem),
+      content: Center(child: Text(mensagem)),
       duration:
           const Duration(seconds: 4), // Duração da notificação em segundos
         backgroundColor: Colors.red[300],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 import 'package:projeto_dispositivos_moveis/model/item_model.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
 import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:provider/provider.dart';
 
@@ -55,6 +56,22 @@ class _AddCardPageState extends State<AddCardPage> {
     });
   }
 
+  void showMessageAndRedirect(BuildContext context, String message) {
+    final snackBar = SnackBar(
+      content: Center(child: Text(message)),
+      duration:
+          const Duration(seconds: 4), // Duração da notificação em segundos
+      backgroundColor: Colors.green[300],
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const ListCardPage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -197,15 +214,19 @@ class _AddCardPageState extends State<AddCardPage> {
             const SizedBox(
               height: 20,
             ),
-            listaItens.isNotEmpty ? 
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                child: const Text('Salvar Lista'),
-                onPressed: () => saveCard(),
-              ),
-            )
-            : const SizedBox(),
+            listaItens.isNotEmpty
+                ? SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      child: const Text('Salvar Lista'),
+                      onPressed: () {
+                        saveCard();
+                        showMessageAndRedirect(
+                            context, 'Lista criada com sucesso!');
+                      },
+                    ),
+                  )
+                : const SizedBox(),
           ],
         ),
       ),
