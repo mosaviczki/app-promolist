@@ -1,10 +1,17 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
-import 'package:projeto_dispositivos_moveis/pages/address.dart';
+import 'package:projeto_dispositivos_moveis/pages/listAddress.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  MainPage({
+    super.key,
+    this.address = 'Ponta Grossa',
+  });
+
+  String address;
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -45,17 +52,17 @@ class _MainPageState extends State<MainPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const AddressPage()));
+                              builder: (context) => const ListAddressPage()));
                     },
-                    child: const Padding(
-                        padding: EdgeInsets.all(5.0),
+                    child: Padding(
+                        padding: const EdgeInsets.all(5.0),
                         child: Row(
                           children: <Widget>[
-                            Icon(Icons.house_outlined),
-                            SizedBox(width: 10),
+                            const Icon(Icons.house_outlined),
+                            const SizedBox(width: 10),
                             Text(
-                              "R. Dep. Chafic Cury, Ponta Grossa",
-                              style: TextStyle(
+                              widget.address,
+                              style: const TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600,
                                 fontSize: 20,

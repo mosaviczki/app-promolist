@@ -61,6 +61,7 @@ class _AddressPageState extends State<AddressPage> {
                           hintText: 'Complemento',
                           backgroundColor: Colors.white,
                           inputType: TextInputType.text,
+                          iconData: Icons.more_horiz,
                           isController: _complementController,
                         ),
                         InputText(
@@ -80,6 +81,7 @@ class _AddressPageState extends State<AddressPage> {
                         InputText(
                           hintText: 'Estado',
                           backgroundColor: Colors.white,
+                          iconData: Icons.map_outlined,
                           inputType: TextInputType.text,
                           isController: _ufController,
                         ),

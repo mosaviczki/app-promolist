@@ -43,6 +43,7 @@ class _AddCardPageState extends State<AddCardPage> {
       ];
       cardsRepository.saveAll(listaCards);
       limpaLista();
+      // ignore: avoid_print
       print(cardsRepository.lista.length);
     });
   }
@@ -122,6 +123,7 @@ class _AddCardPageState extends State<AddCardPage> {
                   onPressed: () {
                     setState(() {
                       decrementValue();
+                      // ignore: avoid_print
                       print(_quantityController.text);
                     });
                   },

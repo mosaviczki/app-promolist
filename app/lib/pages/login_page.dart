@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
           content: Text('Logado com sucesso'), backgroundColor: Colors.green));
       // ignore: use_build_context_synchronously
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const MainPage()));
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     } on AuthException catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(

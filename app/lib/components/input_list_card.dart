@@ -100,6 +100,7 @@ class _InputListCardState extends State<InputListCard> {
                             setState(() {
                               listaItem
                                   .add(ItemModel(nome: 'teste', quantidade: 2));
+                               // ignore: avoid_print
                               print('adicionou');
                             });
                           },
@@ -144,6 +145,7 @@ class _InputListCardState extends State<InputListCard> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  // ignore: avoid_print
                   print(listaItem);
                 },
                 style: ElevatedButton.styleFrom(
