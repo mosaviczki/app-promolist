@@ -66,7 +66,7 @@ class _AddCardPageState extends State<AddCardPage> {
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const ListCardPage(),
       ),

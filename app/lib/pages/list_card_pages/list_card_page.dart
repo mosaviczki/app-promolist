@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/add_card_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card.dart';
+import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
 import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class _ListCardPageState extends State<ListCardPage> {
       content: Center(child: Text(mensagem)),
       duration:
           const Duration(seconds: 4), // Duração da notificação em segundos
-        backgroundColor: Colors.red[300],
+      backgroundColor: Colors.red[300],
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -33,6 +34,16 @@ class _ListCardPageState extends State<ListCardPage> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         forceMaterialTransparency: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const MainPage(),
+              ),
+            );
+          },
+        ),
       ),
       backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
       body: Column(
