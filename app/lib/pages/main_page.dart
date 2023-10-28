@@ -1,10 +1,10 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
 import 'package:projeto_dispositivos_moveis/pages/listAddress.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
 
+// ignore: must_be_immutable
 class MainPage extends StatefulWidget {
   MainPage({
     super.key,
@@ -40,7 +40,12 @@ class _MainPageState extends State<MainPage> {
         drawer: const NavBar(),
         appBar: AppBar(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => print('tap'),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ListCardPage(),
+              ),
+            ),
           child: const Icon(Icons.add),
         ),
         body: Stack(children: [
