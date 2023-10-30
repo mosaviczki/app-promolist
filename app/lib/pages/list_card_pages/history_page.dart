@@ -18,33 +18,72 @@ class _HistoryPageState extends State<HistoryPage> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.black),
-          forceMaterialTransparency: true,
+          forceMaterialTransparency: false,
+
         ),
         backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
-        body: ListView.separated(
-          itemBuilder: (context, index) {
-            return index == 0
-                ? const Padding(
-                    padding: EdgeInsets.only(left: 60),
-                    child: Row(
-                      children: [
-                        Text(
-                          'HISTÓRICO',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 26,
-                          ),
-                        )
-                      ],
+        body: Container(
+          padding: EdgeInsets.only(bottom: 20),
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 25),
+                    child: Text(
+                      'Histórico',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
                     ),
-                  )
-                : const HistoryCard();
-          },
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 30,
+                  ),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    itemBuilder: (context, index) {
+                      return HistoryCard(
+                          titulo: cardsRepository.historico[index].titulo);
+                    },
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 30,
+                    ),
+                    itemCount: cardsRepository.historico.length,
+                  ),
+                ],
+              );
+            },
+            itemCount: 1,
           ),
-          itemCount: cardsRepository.historico.length,
         ));
   }
 }
+
+/*  ListView.separated(
+            
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return HistoryCard(
+                  titulo: cardsRepository.historico[index].titulo);
+            },
+            separatorBuilder: (context, index) => const SizedBox(
+              height: 30,
+            ),
+            itemCount: cardsRepository.historico.length,
+          ), */
+
+        /*   const Padding(
+        padding: EdgeInsets.only(bottom: 45),
+        child: Text(
+          'Historico',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+      ), */

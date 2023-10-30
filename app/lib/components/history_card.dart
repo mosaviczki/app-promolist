@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HistoryCard extends StatefulWidget {
-  const HistoryCard({super.key});
-  
+  const HistoryCard({super.key, required this.titulo});
+  final String titulo;
   @override
   State<HistoryCard> createState() => _HistoryCardState();
 }
@@ -16,18 +16,18 @@ class _HistoryCardState extends State<HistoryCard> {
         // ignore: sized_box_for_whitespace
         Container(
           width: cardWidth,
-          child: const ListTile(
-            visualDensity: VisualDensity(vertical: -4),
+          child:  ListTile(
+            visualDensity: const VisualDensity(vertical: -4),
             title: Text(
-              'Aniversario do João',
-              style: TextStyle(
+              widget.titulo,
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            tileColor: Color.fromRGBO(71, 101, 255, 1),
-            shape: RoundedRectangleBorder(
+            tileColor: const Color.fromRGBO(71, 101, 255, 1),
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             ),

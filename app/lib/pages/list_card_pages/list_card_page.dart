@@ -40,7 +40,7 @@ class _ListCardPageState extends State<ListCardPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        forceMaterialTransparency: true,
+        forceMaterialTransparency: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

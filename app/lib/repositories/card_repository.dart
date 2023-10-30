@@ -60,7 +60,7 @@ class CardRepository extends ChangeNotifier {
       final snapshot =
           await db.collection('users/${auth.usuario!.uid}/historico').get();
       snapshot.docs.forEach((doc) {
-        _addCardToList(doc);
+        _addCardToHistory(doc);
         notifyListeners();
       });
     }
@@ -70,6 +70,12 @@ class CardRepository extends ChangeNotifier {
     CardsModel card = CardsModel(
         titulo: _getDocTitle(doc), listaItens: _getDocListItens(doc));
     _lista.add(card);
+  }
+
+  _addCardToHistory(QueryDocumentSnapshot doc) {
+    CardsModel card = CardsModel(
+        titulo: _getDocTitle(doc), listaItens: _getDocListItens(doc));
+    _historico.add(card);
   }
 
   _getDocTitle(QueryDocumentSnapshot doc) {
@@ -104,5 +110,6 @@ class CardRepository extends ChangeNotifier {
         .doc(card.titulo)
         .set(card.toMap());
     _historico.add(card);
+    notifyListeners();
   }
 }
