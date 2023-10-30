@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/add_card_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card.dart';
 import 'package:projeto_dispositivos_moveis/pages/main_page.dart';
@@ -26,6 +27,12 @@ class _ListCardPageState extends State<ListCardPage> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
+  void deleteCard(CardsModel card) {
+    setState(() {
+      cardsRepository.remove(card);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     cardsRepository = Provider.of<CardRepository>(context);
@@ -39,7 +46,7 @@ class _ListCardPageState extends State<ListCardPage> {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) =>  MainPage(),
+                builder: (context) => MainPage(),
               ),
             );
           },
@@ -94,8 +101,12 @@ class _ListCardPageState extends State<ListCardPage> {
               child: ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) =>
-                    ListCard(card: cardsRepository.lista[index]),
+                itemBuilder: (context, index) => ListCard(
+                  card: cardsRepository.lista[index],
+                  deleteCard: () {
+                    deleteCard(cardsRepository.lista[index]);
+                  },
+                ),
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 20,
                 ),

@@ -9,10 +9,12 @@ import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class CardRepository extends ChangeNotifier {
   final List<CardsModel> _lista = [];
+  final List<CardsModel> _historico = [];
   late FirebaseFirestore db;
   late AuthService auth;
   UnmodifiableListView<CardsModel> get lista => UnmodifiableListView(_lista);
-
+  UnmodifiableListView<CardsModel> get historico =>
+      UnmodifiableListView(_historico);
   CardRepository({required this.auth}) {
     _startRepository();
   }
@@ -20,6 +22,7 @@ class CardRepository extends ChangeNotifier {
   _startRepository() async {
     await _startFirestore();
     await _readCards();
+    await _readHistory();
   }
 
   _startFirestore() {
@@ -32,7 +35,7 @@ class CardRepository extends ChangeNotifier {
         _lista.add(card);
         await db
             .collection('users/${auth.usuario!.uid}/cards')
-            .doc()
+            .doc(cards[0].titulo)
             .set(card.toMap());
       }
     }
@@ -44,6 +47,18 @@ class CardRepository extends ChangeNotifier {
       print('carregou lista do bd');
       final snapshot =
           await db.collection('users/${auth.usuario!.uid}/cards').get();
+      snapshot.docs.forEach((doc) {
+        _addCardToList(doc);
+        notifyListeners();
+      });
+    }
+  }
+
+  _readHistory() async {
+    if (auth.usuario != null && historico.isEmpty) {
+      print('carregou historico do bd');
+      final snapshot =
+          await db.collection('users/${auth.usuario!.uid}/historico').get();
       snapshot.docs.forEach((doc) {
         _addCardToList(doc);
         notifyListeners();
@@ -73,8 +88,21 @@ class CardRepository extends ChangeNotifier {
     return listaItens;
   }
 
-  remove(CardsModel card) {
+  remove(CardsModel card) async {
+    await db
+        .collection('users/${auth.usuario!.uid}/cards')
+        .doc(card.titulo)
+        .delete();
+    saveHistory(card);
     _lista.remove(card);
     notifyListeners();
+  }
+
+  saveHistory(CardsModel card) async {
+    await db
+        .collection('users/${auth.usuario!.uid}/historico')
+        .doc(card.titulo)
+        .set(card.toMap());
+    _historico.add(card);
   }
 }

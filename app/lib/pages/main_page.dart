@@ -37,18 +37,19 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const NavBar(),
-        appBar: AppBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ListCardPage(),
-              ),
-            ),
-          child: const Icon(Icons.add),
+      drawer: const NavBar(),
+      appBar: AppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ListCardPage(),
+          ),
         ),
-        body: Stack(children: [
+        child: const Icon(Icons.add),
+      ),
+      body: Stack(
+        children: [
           Column(
             children: <Widget>[
               Center(
@@ -79,6 +80,8 @@ class _MainPageState extends State<MainPage> {
               const Expanded(child: Maps()),
             ],
           )
-        ]));
+        ],
+      ),
+    );
   }
 }

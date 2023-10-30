@@ -21,9 +21,9 @@ class _InitialPageState extends State<InitialPage> {
         Container(
           height: 300,
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/supermercado.jpg'),
-                  fit: BoxFit.fill)),
+            image: DecorationImage(
+                image: AssetImage('assets/supermercado.jpg'), fit: BoxFit.fill),
+          ),
         ),
         const Text(
           "Bem-vindo",

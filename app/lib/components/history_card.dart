@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HistoryCard extends StatefulWidget {
   const HistoryCard({super.key});
-
+  
   @override
   State<HistoryCard> createState() => _HistoryCardState();
 }
