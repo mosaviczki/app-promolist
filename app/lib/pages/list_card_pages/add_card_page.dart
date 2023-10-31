@@ -14,8 +14,15 @@ class AddCardPage extends StatefulWidget {
 }
 
 class _AddCardPageState extends State<AddCardPage> {
+  @override
+  void initState() {
+    super.initState();
+    _titleController = TextEditingController(
+        text: widget.card == null ? '' : widget.card?.titulo);
+  }
+
   late CardRepository cardsRepository;
-  final _titleController = TextEditingController();
+  TextEditingController _titleController = TextEditingController();
   final _itemController = TextEditingController();
   final _quantityController = TextEditingController(text: '1');
   List<ItemModel> listaItens = [];
@@ -43,16 +50,11 @@ class _AddCardPageState extends State<AddCardPage> {
 
   void saveCard() {
     setState(() {
-      List<CardsModel> listaCards = [
-        CardsModel(
-          titulo: _titleController.text,
-          listaItens: listaItens,
-        ),
-      ];
-      cardsRepository.saveAll(listaCards);
-      limpaLista();
-      // ignore: avoid_print
-      print(cardsRepository.lista.length);
+      CardsModel card = CardsModel(
+        titulo: _titleController.text,
+        listaItens: listaItens,
+      );
+      cardsRepository.saveAll(card, cardARemover: widget.card);
     });
   }
 
@@ -102,10 +104,8 @@ class _AddCardPageState extends State<AddCardPage> {
               const Text('Adicionar Lista'),
               TextFormField(
                 controller: _titleController,
-                decoration: InputDecoration(
-                  labelText: widget.card != null
-                      ? widget.card!.titulo
-                      : 'Titulo para a compra',
+                decoration: const InputDecoration(
+                  labelText: 'Titulo para a compra',
                 ),
                 validator: (value) {
                   print('entrou no validator do titulo');
@@ -247,9 +247,11 @@ class _AddCardPageState extends State<AddCardPage> {
                                   backgroundColor: Colors.red[300]),
                             );
                           } else {
+                            String message = widget.card == null
+                                ? 'Lista criada com sucesso!'
+                                : 'Lista atualizada com sucesso!';
                             saveCard();
-                            showMessageAndRedirect(
-                                context, 'Lista criada com sucesso!');
+                            showMessageAndRedirect(context, message);
                           }
                         },
                       ),

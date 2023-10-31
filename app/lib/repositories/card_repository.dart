@@ -29,19 +29,6 @@ class CardRepository extends ChangeNotifier {
     db = DBFirestore.get();
   }
 
-  saveAll(List<CardsModel> cards) async {
-    for (var card in cards) {
-      if (!_lista.contains(card)) {
-        _lista.add(card);
-        await db
-            .collection('users/${auth.usuario!.uid}/cards')
-            .doc(cards[0].titulo)
-            .set(card.toMap());
-      }
-    }
-    notifyListeners();
-  }
-
   _readCards() async {
     if (auth.usuario != null && lista.isEmpty) {
       print('carregou lista do bd');
@@ -64,6 +51,26 @@ class CardRepository extends ChangeNotifier {
         notifyListeners();
       });
     }
+  }
+
+  saveAll(CardsModel cardNovo, {CardsModel? cardARemover}) async {
+    if (cardARemover != null) {
+      remove(cardARemover);
+    }
+    _lista.add(cardNovo);
+    await db
+        .collection('users/${auth.usuario!.uid}/cards')
+        .doc(cardNovo.titulo)
+        .set(cardNovo.toMap());
+
+    notifyListeners(); 
+  }
+
+  bool verifyCardTitle(CardsModel cardNovo) {
+    for (var card in _lista) {
+      if (card.titulo == cardNovo.titulo) return false;
+    }
+    return true;
   }
 
   _addCardToList(QueryDocumentSnapshot doc) {
@@ -95,11 +102,11 @@ class CardRepository extends ChangeNotifier {
   }
 
   remove(CardsModel card) async {
+    _lista.remove(card);
     await db
         .collection('users/${auth.usuario!.uid}/cards')
         .doc(card.titulo)
         .delete();
-    _lista.remove(card);
     notifyListeners();
   }
 
