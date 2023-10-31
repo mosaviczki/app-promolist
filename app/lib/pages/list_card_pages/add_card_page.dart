@@ -108,7 +108,6 @@ class _AddCardPageState extends State<AddCardPage> {
                   labelText: 'Titulo para a compra',
                 ),
                 validator: (value) {
-                  print('entrou no validator do titulo');
                   if (value != null) {
                     return value.isEmpty
                         ? 'Por favor, insira um titulo!'
@@ -148,8 +147,6 @@ class _AddCardPageState extends State<AddCardPage> {
                     onPressed: () {
                       setState(() {
                         decrementValue();
-                        // ignore: avoid_print
-                        print(_quantityController.text);
                       });
                     },
                     icon: const Icon(Icons.remove),
@@ -207,11 +204,17 @@ class _AddCardPageState extends State<AddCardPage> {
                       ),
                       title: Row(
                         children: [
-                          Text(listaItens[index].nome),
-                          const SizedBox(
-                            width: 100,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Text(listaItens[index].nome),
                           ),
-                          Text(listaItens[index].quantidade.toString()),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            listaItens[index].quantidade.toString(),
+                            overflow: TextOverflow.clip,
+                          ),
                         ],
                       ),
                       trailing: IconButton(

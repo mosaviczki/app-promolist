@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:projeto_dispositivos_moveis/components/maps_card.dart';
+import 'package:projeto_dispositivos_moveis/controller/supermarket_controller.dart';
 import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
 import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:provider/provider.dart';
@@ -19,11 +20,7 @@ class _MapsState extends State<Maps> {
   double long = -50.152239;
   List<String> mercados = ['Tozzeto', 'Condor', 'Max Atacadista'];
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
-
-  void showBottomSheet(BuildContext context) {
+  void showBottomSheet() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -81,13 +78,13 @@ class _MapsState extends State<Maps> {
   @override
   Widget build(BuildContext context) {
     cardsRepository = Provider.of<CardRepository>(context);
-    var markers = {
+    /* var markers = {
       Marker(
         markerId: const MarkerId('1'),
         position: const LatLng(-25.0739148, -50.1533899),
         infoWindow: const InfoWindow(title: 'Tozetto', snippet: '350,00'),
         onTap: () {
-          showBottomSheet(context);
+          showBottomSheet();
         },
       ),
       Marker(
@@ -95,7 +92,7 @@ class _MapsState extends State<Maps> {
         position: const LatLng(-25.072164, -50.150362),
         infoWindow: const InfoWindow(title: 'Condor', snippet: '315,00'),
         onTap: () {
-          showBottomSheet(context);
+          showBottomSheet();
         },
       ),
       Marker(
@@ -103,25 +100,30 @@ class _MapsState extends State<Maps> {
         position: const LatLng(-25.069979, -50.147477),
         infoWindow: const InfoWindow(title: 'MaxAtacadista', snippet: '335,00'),
         onTap: () {
-          showBottomSheet(context);
+          showBottomSheet();
         },
       ),
-    };
+    }; */
 
     return Scaffold(
-      body: Stack(
-        children: [
-          GoogleMap(
-            mapType: MapType.normal,
-            onMapCreated: _onMapCreated,
-            markers: markers,
+      body: ChangeNotifierProvider<SupermercadoController>(
+        create: (context) => SupermercadoController(tapFunction: showBottomSheet),
+        child: Builder(builder: (context) {
+          final local = context.watch<SupermercadoController>();
+
+          return GoogleMap(
             initialCameraPosition: CameraPosition(
-              target: LatLng(lat, long),
-              zoom: 17.0,
+              target: LatLng(local.lat, local.long),
+              zoom: 17,
             ),
-            zoomControlsEnabled: false,
-          ),
-        ],
+            zoomControlsEnabled: true,
+            mapType: MapType.normal,
+            myLocationEnabled: true,
+            onMapCreated: local.onMapCreated,
+            markers: local.markers,
+            onTap: (argument) => print('clicou no marker'),
+          );
+        }),
       ),
     );
   }

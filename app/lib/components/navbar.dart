@@ -4,7 +4,6 @@ import 'package:projeto_dispositivos_moveis/pages/list_card_pages/history_page.d
 import 'package:projeto_dispositivos_moveis/pages/initial_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
 import 'package:projeto_dispositivos_moveis/pages/profile_pages/profile_page.dart';
-import 'package:projeto_dispositivos_moveis/repositories/user_repository.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
 class NavBar extends StatefulWidget {
@@ -22,16 +21,12 @@ class _NavBarState extends State<NavBar> {
     // ignore: no_leading_underscores_for_local_identifiers
     final FirebaseAuth _auth = FirebaseAuth.instance;
     User? usuario = _auth.currentUser;
-    final users = UserRepository().users;
     // ignore: avoid_function_literals_in_foreach_calls
-    users.forEach((user) {
-      if (user.email == usuario?.email) {
+    
         setState(() {
-          nome = user.nome;
-          email = user.email;
+          nome = usuario!.displayName!;
+          email = usuario.email!;
         });
-      }
-    });
   }
 
   @override
