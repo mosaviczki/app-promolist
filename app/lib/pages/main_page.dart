@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
-import 'package:projeto_dispositivos_moveis/pages/listAddress.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_address_pages/listAddress.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
+import 'package:projeto_dispositivos_moveis/repositories/myAddress_repository.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class MainPage extends StatefulWidget {
@@ -41,11 +43,11 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ListCardPage(),
-              ),
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ListCardPage(),
             ),
+          ),
           child: const Icon(Icons.add),
         ),
         body: Stack(children: [
@@ -65,14 +67,26 @@ class _MainPageState extends State<MainPage> {
                           children: <Widget>[
                             const Icon(Icons.house_outlined),
                             const SizedBox(width: 10),
-                            Text(
-                              widget.address,
-                              style: const TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                              ),
-                            ),
+                            Consumer<MyAddressRepository>(
+                                builder: (context, my_address, child) {
+                              return my_address.lista.isEmpty
+                                  ? const Text(
+                                      "Adicionar endereço",
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20,
+                                      ),
+                                    )
+                                  : Text(
+                                      "${my_address.lista.first.address} - ${my_address.lista.first.city}",
+                                      style: const TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    );
+                            }),
                           ],
                         ))),
               ),

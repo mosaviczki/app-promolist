@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/input_text.dart';
+import 'package:projeto_dispositivos_moveis/model/address_model.dart';
+import 'package:projeto_dispositivos_moveis/repositories/address_repository.dart';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class AddressPage extends StatefulWidget {
   const AddressPage({super.key});
@@ -12,12 +17,62 @@ class _AddressPageState extends State<AddressPage> {
   final formKey = GlobalKey<FormState>();
   final _cepController = TextEditingController();
   final _addressController = TextEditingController();
+  final _numberController = TextEditingController();
   final _complementController = TextEditingController();
-  final _cityController = TextEditingController();
-  final _ufController = TextEditingController();
+  late TextEditingController _cityController = TextEditingController();
+  late TextEditingController _ufController = TextEditingController();
+  late AddressRepository addressesAll;
+
+  buscaCep() async {
+    String cep = _cepController.text;
+
+    String url = 'https://viacep.com.br/ws/$cep/json/';
+
+    http.Response response;
+
+    response = await http.get(url as Uri);
+
+    Map<String, dynamic> dados = json.decode(response.body);
+    setState(() {
+      _cityController = dados["localidade"];
+      _ufController = dados["uf"];
+    });
+  }
+
+  saveAddress() {
+    setState(() {
+      List<AddressModel> listaAddress = [
+        AddressModel(
+          zipcode: int.parse(_cepController.text),
+          address: _addressController.text,
+          number: _numberController.text,
+          city: _cityController.text,
+          uf: _ufController.text,
+          complement: _complementController.text,
+        ),
+      ];
+      addressesAll.saveAll(listaAddress);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Endereço cadastrado com sucesso'),
+          backgroundColor: Colors.green));
+      limparTela();
+    });
+  }
+
+  limparTela() {
+    setState(() {
+      _addressController.clear();
+      _cepController.clear();
+      _cityController.clear();
+      _numberController.clear();
+      _ufController.clear();
+      _complementController.clear();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    addressesAll = Provider.of<AddressRepository>(context);
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -58,6 +113,13 @@ class _AddressPageState extends State<AddressPage> {
                           isController: _addressController,
                         ),
                         InputText(
+                          hintText: 'Numero',
+                          backgroundColor: Colors.white,
+                          iconData: Icons.home,
+                          inputType: TextInputType.text,
+                          isController: _numberController,
+                        ),
+                        InputText(
                           hintText: 'Complemento',
                           backgroundColor: Colors.white,
                           inputType: TextInputType.text,
@@ -95,7 +157,9 @@ class _AddressPageState extends State<AddressPage> {
                               borderRadius: BorderRadius.circular(5)),
                           child: MaterialButton(
                             onPressed: () {
-                              if (formKey.currentState!.validate()) {}
+                              if (formKey.currentState!.validate()) {
+                                saveAddress();
+                              }
                             },
                             child: const Text(
                               "SALVAR",

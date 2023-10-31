@@ -1,32 +1,33 @@
 import 'dart:collection';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/database/db_firestore.dart';
 import 'package:projeto_dispositivos_moveis/model/address_model.dart';
 import 'package:projeto_dispositivos_moveis/services/auth_service.dart';
 
-class AddressRepository extends ChangeNotifier {
+class MyAddressRepository extends ChangeNotifier {
   List<AddressModel> _lista = [];
   late FirebaseFirestore db;
   late AuthService auth;
 
-  AddressRepository({required this.auth}) {
+  MyAddressRepository({required this.auth}) {
     _startRepository();
   }
 
   _startRepository() async {
     await _startFirestore();
-    await _readAddress();
+    await _readMyAddress();
   }
 
   _startFirestore() {
     db = DBFirestore.get();
   }
 
-  _readAddress() async {
+  _readMyAddress() async {
     if (auth.usuario != null && _lista.isEmpty) {
       final snapshot =
-          await db.collection('users/${auth.usuario!.uid}/addresses').get();
+          await db.collection('users/${auth.usuario!.uid}/myAddress').get();
       snapshot.docs.forEach((doc) {
         AddressModel addresses = lista
             .firstWhere((addresses) => addresses.zipcode == doc.get('address'));
@@ -38,12 +39,12 @@ class AddressRepository extends ChangeNotifier {
 
   UnmodifiableListView<AddressModel> get lista => UnmodifiableListView(_lista);
 
-  saveAll(List<AddressModel> addresses) {
-    addresses.forEach((add) async {
+  saveAll(List<AddressModel> address) {
+    address.forEach((add) async {
       if (!_lista.contains(add)) {
         _lista.add(add);
         await db
-            .collection('users/${auth.usuario!.uid}/addresses')
+            .collection('users/${auth.usuario!.uid}/myAddress')
             .doc(add.address)
             .set({
           'address': add.address,
@@ -51,18 +52,20 @@ class AddressRepository extends ChangeNotifier {
           'complement': add.complement,
           'city': add.city,
           'state': add.uf,
+          'zipcode': add.zipcode,
         });
       }
-      notifyListeners();
     });
   }
 
-  remove(AddressModel address) async {
-    await db
-        .collection('users/${auth.usuario!.uid}/addresses')
-        .doc(address.address)
-        .delete();
-    _lista.remove(address);
+  removeAll() async {
+    var snapshot =
+        await db.collection('users/${auth.usuario!.uid}/myAddresses').get();
+    snapshot.docs.forEach((doc) {
+      print('Doc: ${doc.reference}');
+      doc.reference.delete();
+    });
+    _lista.removeAt(0);
     notifyListeners();
   }
 }
