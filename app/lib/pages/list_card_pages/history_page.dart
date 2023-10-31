@@ -23,10 +23,10 @@ class _HistoryPageState extends State<HistoryPage> {
         ),
         backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
         body: Container(
-          padding: EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.only(bottom: 20),
           child: ListView.builder(
             shrinkWrap: true,
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               return Column(
                 children: [
@@ -43,7 +43,7 @@ class _HistoryPageState extends State<HistoryPage> {
                   ),
                   ListView.separated(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     itemBuilder: (context, index) {
                       return HistoryCard(

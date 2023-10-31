@@ -99,6 +99,15 @@ class CardRepository extends ChangeNotifier {
         .collection('users/${auth.usuario!.uid}/cards')
         .doc(card.titulo)
         .delete();
+    _lista.remove(card);
+    notifyListeners();
+  }
+
+  removeAndMoveToHistory(CardsModel card) async {
+    await db
+        .collection('users/${auth.usuario!.uid}/cards')
+        .doc(card.titulo)
+        .delete();
     saveHistory(card);
     _lista.remove(card);
     notifyListeners();

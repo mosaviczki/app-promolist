@@ -61,7 +61,7 @@ class _MapsState extends State<Maps> {
 
   void deleteCard(CardsModel card) {
     setState(() {
-      cardsRepository.remove(card);
+      cardsRepository.removeAndMoveToHistory(card);
       Navigator.pop(context);
       mostrarAviso(context, 'Lista concluída!', true);
     });

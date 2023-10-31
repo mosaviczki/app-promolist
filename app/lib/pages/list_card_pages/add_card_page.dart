@@ -6,7 +6,8 @@ import 'package:projeto_dispositivos_moveis/repositories/card_repository.dart';
 import 'package:provider/provider.dart';
 
 class AddCardPage extends StatefulWidget {
-  const AddCardPage({super.key});
+  final CardsModel? card;
+  const AddCardPage({super.key, this.card});
 
   @override
   State<AddCardPage> createState() => _AddCardPageState();
@@ -18,6 +19,13 @@ class _AddCardPageState extends State<AddCardPage> {
   final _itemController = TextEditingController();
   final _quantityController = TextEditingController(text: '1');
   List<ItemModel> listaItens = [];
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  void iniciaLista() {
+    if (widget.card != null) {
+      listaItens = widget.card!.listaItens;
+    }
+  }
 
   void incrementValue() {
     int currentValue = int.tryParse(_quantityController.text) ?? 1;
@@ -77,6 +85,7 @@ class _AddCardPageState extends State<AddCardPage> {
   @override
   Widget build(BuildContext context) {
     cardsRepository = Provider.of<CardRepository>(context);
+    iniciaLista();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -84,152 +93,170 @@ class _AddCardPageState extends State<AddCardPage> {
         iconTheme: const IconThemeData(color: Colors.black),
         forceMaterialTransparency: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: Column(
-          children: [
-            const Text('Adicionar Lista'),
-            TextFormField(
-              controller: _titleController,
-              decoration: const InputDecoration(
-                labelText: 'Titulo para a compra',
-              ),
-              validator: (value) {
-                if (value != null) {
-                  return value.isEmpty ? 'Por favor, insira um titulo!' : null;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 230,
-                  child: TextFormField(
-                    controller: _itemController,
-                    decoration: const InputDecoration(
-                      labelText: 'Adicione um item',
-                    ),
-                    validator: (value) {
-                      if (value != null) {
-                        return value.isEmpty
-                            ? 'Por favor, insira um item!'
-                            : null;
-                      }
-                      return null;
-                    },
-                  ),
+      body: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Column(
+            children: [
+              const Text('Adicionar Lista'),
+              TextFormField(
+                controller: _titleController,
+                decoration: InputDecoration(
+                  labelText: widget.card != null
+                      ? widget.card!.titulo
+                      : 'Titulo para a compra',
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                IconButton(
-                    onPressed: () => {
-                          setState(
-                            () {
-                              incrementValue();
-                            },
-                          )
-                        },
-                    icon: const Icon(Icons.add)),
-                Text(_quantityController.text),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      decrementValue();
-                      // ignore: avoid_print
-                      print(_quantityController.text);
-                    });
-                  },
-                  icon: const Icon(Icons.remove),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: 150,
-              child: ElevatedButton(
-                child: const Text('Adicionar item'),
-                onPressed: () => {
-                  setState(
-                    () {
-                      listaItens.add(
-                        ItemModel(
-                          nome: _itemController.text,
-                          quantidade: int.parse(_quantityController.text),
-                        ),
-                      );
-                      _itemController.clear();
-                      _quantityController.text = '1';
-                    },
-                  )
+                validator: (value) {
+                  print('entrou no validator do titulo');
+                  if (value != null) {
+                    return value.isEmpty
+                        ? 'Por favor, insira um titulo!'
+                        : null;
+                  }
+                  return null;
                 },
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              height: 180,
-              child: Scrollbar(
-                thumbVisibility: true,
-                child: ListView.separated(
-                  itemBuilder: (context, index) => ListTile(
-                    visualDensity: const VisualDensity(vertical: -3),
-                    leading: const Padding(
-                      padding: EdgeInsets.only(top: 5),
-                      child: Icon(
-                        Icons.circle,
-                        size: 15,
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 230,
+                    child: TextFormField(
+                      controller: _itemController,
+                      decoration: const InputDecoration(
+                        labelText: 'Adicione um item',
                       ),
                     ),
-                    title: Row(
-                      children: [
-                        Text(listaItens[index].nome),
-                        const SizedBox(
-                          width: 100,
-                        ),
-                        Text(listaItens[index].quantidade.toString()),
-                      ],
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () {
-                        setState(() {
-                          listaItens.remove(listaItens[index]);
-                        });
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  IconButton(
+                      onPressed: () => {
+                            setState(
+                              () {
+                                incrementValue();
+                              },
+                            )
+                          },
+                      icon: const Icon(Icons.add)),
+                  Text(_quantityController.text),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        decrementValue();
+                        // ignore: avoid_print
+                        print(_quantityController.text);
+                      });
+                    },
+                    icon: const Icon(Icons.remove),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: 150,
+                child: ElevatedButton(
+                  child: const Text('Adicionar item'),
+                  onPressed: () => {
+                    setState(
+                      () {
+                        if (_itemController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content:
+                                    const Text('O item não pode estar vazio!'),
+                                backgroundColor: Colors.red[300]),
+                          );
+                        } else {
+                          listaItens.add(
+                            ItemModel(
+                              nome: _itemController.text,
+                              quantidade: int.parse(_quantityController.text),
+                            ),
+                          );
+                          _itemController.clear();
+                          _quantityController.text = '1';
+                        }
                       },
-                    ),
-                  ),
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: 5,
-                  ),
-                  itemCount: listaItens.length,
+                    )
+                  },
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            listaItens.isNotEmpty
-                ? SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                      child: const Text('Salvar Lista'),
-                      onPressed: () {
-                        saveCard();
-                        showMessageAndRedirect(
-                            context, 'Lista criada com sucesso!');
-                      },
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                height: 180,
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  child: ListView.separated(
+                    itemBuilder: (context, index) => ListTile(
+                      visualDensity: const VisualDensity(vertical: -3),
+                      leading: const Padding(
+                        padding: EdgeInsets.only(top: 5),
+                        child: Icon(
+                          Icons.circle,
+                          size: 15,
+                        ),
+                      ),
+                      title: Row(
+                        children: [
+                          Text(listaItens[index].nome),
+                          const SizedBox(
+                            width: 100,
+                          ),
+                          Text(listaItens[index].quantidade.toString()),
+                        ],
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {
+                          setState(() {
+                            listaItens.remove(listaItens[index]);
+                          });
+                        },
+                      ),
                     ),
-                  )
-                : const SizedBox(),
-          ],
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 5,
+                    ),
+                    itemCount: listaItens.length,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              listaItens.isNotEmpty
+                  ? SizedBox(
+                      width: 200,
+                      child: ElevatedButton(
+                        child: const Text('Salvar Lista'),
+                        onPressed: () {
+                          if (!_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content:
+                                      const Text('Preencha todos os campos!'),
+                                  backgroundColor: Colors.red[300]),
+                            );
+                          } else {
+                            saveCard();
+                            showMessageAndRedirect(
+                                context, 'Lista criada com sucesso!');
+                          }
+                        },
+                      ),
+                    )
+                  : const SizedBox(),
+            ],
+          ),
         ),
       ),
     );

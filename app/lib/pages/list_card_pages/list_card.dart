@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/model/cards_model.dart';
-import 'package:projeto_dispositivos_moveis/pages/list_card_pages/details_page.dart';
+import 'package:projeto_dispositivos_moveis/pages/list_card_pages/add_card_page.dart';
 
-// ignore: must_be_immutable
+
 class ListCard extends StatefulWidget {
-  ListCard({super.key, required this.card, required this.deleteCard});
+  const ListCard({super.key, required this.card, required this.deleteCard});
 
-  CardsModel card;
-  VoidCallback deleteCard;
+  final CardsModel card;
+  final VoidCallback deleteCard;
   @override
   State<ListCard> createState() => _ListCardState();
 }
@@ -19,7 +19,7 @@ class _ListCardState extends State<ListCard> {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailsPages(card: widget.card),
+            builder: (context) => AddCardPage(card: widget.card),
           )),
       child: Container(
         width: 150,

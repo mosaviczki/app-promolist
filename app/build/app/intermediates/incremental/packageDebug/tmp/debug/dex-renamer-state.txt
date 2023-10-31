@@ -1,4 +1,4 @@
-#Mon Oct 30 10:57:57 BRT 2023
+#Tue Oct 31 08:09:00 BRT 2023
 base.0=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 base.1=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 base.2=C\:\\src\\flutter-projects\\flutter\\promolist\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
