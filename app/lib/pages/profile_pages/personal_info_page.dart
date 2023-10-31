@@ -34,7 +34,9 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
         iconTheme: const IconThemeData(color: Colors.black),
         forceMaterialTransparency: true,
       ),
-      backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
+      backgroundColor: const Color.fromRGBO(240, 240, 240,1
+      
+       ),
       body: SingleChildScrollView(
         reverse: true,
         child: Padding(

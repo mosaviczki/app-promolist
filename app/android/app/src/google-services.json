@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "36844156603",
+    "project_id": "promolist-de655",
+    "storage_bucket": "promolist-de655.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36844156603:android:ee310cfaa49d8a47c81b9e",
+        "android_client_info": {
+          "package_name": "com.example.projeto_dispositivos_moveis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbice6Y2YGE3NfAte1Za7S3OFleZkmTwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,7 @@
             "outputFile": "com.example.projeto_dispositivos_moveis.app-mergeDebugResources-26:/values-lt/values-lt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\da1dfe8119b083456108cce9257fb942\\transformed\\jetified-play-services-base-18.1.0\\res\\values-lt\\values.xml",
+                    "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\da1dfe8119b083456108cce9257fb942\\transformed\\jetified-play-services-base-18.1.0\\res\\values-lt\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\4b92544d0249f0b3f3043d7256944654\\transformed\\core-1.10.1\\res\\values-lt\\values-lt.xml",
+                    "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\4b92544d0249f0b3f3043d7256944654\\transformed\\core-1.10.1\\res\\values-lt\\values-lt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\006bbe5a907188cb8f989af846bf78a4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-lt\\values.xml",
+                    "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\006bbe5a907188cb8f989af846bf78a4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-lt\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\guitd\\.gradle\\caches\\transforms-3\\15eddd45100fa512963e6542464ed3b9\\transformed\\browser-1.4.0\\res\\values-lt\\values-lt.xml",
+                    "source": "C:\\Users\\moniq\\.gradle\\caches\\transforms-3\\15eddd45100fa512963e6542464ed3b9\\transformed\\browser-1.4.0\\res\\values-lt\\values-lt.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
