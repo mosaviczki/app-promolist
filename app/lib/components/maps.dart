@@ -25,32 +25,44 @@ class _MapsState extends State<Maps> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: cardsRepository.lista.isEmpty ? 150 : 250,
+          height: cardsRepository.lista.isEmpty
+              ? 150
+              : MediaQuery.of(context).size.height * 0.6,
           color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: cardsRepository.lista.isEmpty
-                ? const Center(
-                    child: Text(
-                    'Nenhuma lista de compras cadastrada!',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ))
-                : ListView.separated(
-                    itemBuilder: (context, index) => MapsCard(
-                      titulo: cardsRepository.lista[index].titulo,
-                      deleteCard: () {
-                        deleteCard(cardsRepository.lista[index]);
-                      },
+          child: cardsRepository.lista.isEmpty
+              ? const Center(
+                  child: Text(
+                  'Nenhuma lista de compras cadastrada!',
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
+                ))
+              : Column(
+                  children: [
+                    Image.network(
+                        'https://lh3.googleusercontent.com/p/AF1QipNFx4nJzphw2vaQ_dMN17U9E3hWHrHv_hjdDzOj=w1080-h608-p-k-no-v0', fit: BoxFit.fill),
+                    const SizedBox(height: 10,),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      child: Scrollbar(
+                        thumbVisibility: true,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) => MapsCard(
+                            titulo: cardsRepository.lista[index].titulo,
+                            deleteCard: () {
+                              deleteCard(cardsRepository.lista[index]);
+                            },
+                          ),
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 10,
+                          ),
+                          itemCount: cardsRepository.lista.length,
+                        ),
+                      ),
                     ),
-                    separatorBuilder: (context, index) => const SizedBox(
-                      height: 10,
-                    ),
-                    itemCount: cardsRepository.lista.length,
-                  ),
-          ),
+                  ],
+                ),
         );
       },
     );
@@ -107,7 +119,8 @@ class _MapsState extends State<Maps> {
 
     return Scaffold(
       body: ChangeNotifierProvider<SupermercadoController>(
-        create: (context) => SupermercadoController(tapFunction: showBottomSheet),
+        create: (context) =>
+            SupermercadoController(tapFunction: showBottomSheet),
         child: Builder(builder: (context) {
           final local = context.watch<SupermercadoController>();
 
