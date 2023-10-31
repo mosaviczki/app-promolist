@@ -31,7 +31,6 @@ class CardRepository extends ChangeNotifier {
 
   _readCards() async {
     if (auth.usuario != null && lista.isEmpty) {
-      print('carregou lista do bd');
       final snapshot =
           await db.collection('users/${auth.usuario!.uid}/cards').get();
       snapshot.docs.forEach((doc) {
@@ -43,7 +42,6 @@ class CardRepository extends ChangeNotifier {
 
   _readHistory() async {
     if (auth.usuario != null && historico.isEmpty) {
-      print('carregou historico do bd');
       final snapshot =
           await db.collection('users/${auth.usuario!.uid}/historico').get();
       snapshot.docs.forEach((doc) {

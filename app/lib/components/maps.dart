@@ -121,7 +121,7 @@ class _MapsState extends State<Maps> {
             myLocationEnabled: true,
             onMapCreated: local.onMapCreated,
             markers: local.markers,
-            onTap: (argument) => print('clicou no marker'),
+            onTap: (argument) => {},
           );
         }),
       ),

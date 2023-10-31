@@ -18,6 +18,8 @@ class _ProfilePageState extends State<ProfilePage> {
   String nome = '';
   String email = '';
   String telefone = '';
+  String senha = '';
+
 
   carregarDados() {
     User? usuario = FirebaseAuth.instance.currentUser;

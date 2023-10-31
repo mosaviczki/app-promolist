@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_dispositivos_moveis/pages/profile_pages/newPassword_page.dart';
 
 class SecurityPage extends StatelessWidget {
   const SecurityPage({super.key});
@@ -61,7 +62,12 @@ class SecurityPage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () => print('Alterando senha'),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NewPasswordPage()));
+                      },
                       child: const Text(
                         'Alterar',
                         style: TextStyle(
@@ -119,7 +125,10 @@ class SecurityPage extends StatelessWidget {
                           padding: EdgeInsets.only(
                             right: 20,
                           ),
-                          child: Icon(Icons.facebook, size: 28,),
+                          child: Icon(
+                            Icons.facebook,
+                            size: 28,
+                          ),
                         ),
                         Text(
                           'Facebook',
@@ -163,7 +172,9 @@ class SecurityPage extends StatelessWidget {
                   thickness: 2,
                 ),
               ), //facebook
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Row(

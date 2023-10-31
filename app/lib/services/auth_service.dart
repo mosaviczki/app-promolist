@@ -48,6 +48,35 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+/*   Future<void> updateEmail(String email, String senha, String newEmail) async {
+    try {
+      var cred = EmailAuthProvider.credential(email: email, password: senha);
+      await usuario!.reauthenticateWithCredential(cred).then((value) {
+        usuario!.updateEmail(newEmail);
+      });
+      _getUser();
+    } on FirebaseAuthException catch (e) {
+      throw AuthException("Erro ao atualizar email!");
+    } */
+
+    Future<void> updatePassword(
+        String email, String oldPassword, String newPassword) async {
+      try {
+        var cred =
+            EmailAuthProvider.credential(email: email, password: oldPassword);
+        await usuario!.reauthenticateWithCredential(cred).then((value) {
+          usuario!.updatePassword(newPassword);
+        });
+        _getUser();
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          throw AuthException("A senha é muito fraca!");
+        } else {
+          throw AuthException("Erro ao atualizar senha!");
+        }
+      }
+    }
+
   // ignore: unused_element
   _startFirestore() {
     db = DBFirestore.get();
@@ -58,7 +87,6 @@ class AuthService extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
-      print(e.code);
       if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
         throw AuthException("Email e/ou senha incorreta");
       }

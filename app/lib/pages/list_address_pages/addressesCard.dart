@@ -33,10 +33,8 @@ class _AddressesCardState extends State<AddressesCard> {
           });
           if (myAddress.lista.isNotEmpty) {
             myAddress.update(selecionada);
-            print('DEU UPDATE');
           } else {
             myAddress.saveAll(selecionada);
-            print('SALVOU PRIMEIRA VEZ ENDERECO');
           }
           Navigator.pop(context);
         },
