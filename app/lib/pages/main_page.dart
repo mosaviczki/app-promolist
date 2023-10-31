@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_dispositivos_moveis/components/maps.dart';
 import 'package:projeto_dispositivos_moveis/components/navbar.dart';
 import 'package:projeto_dispositivos_moveis/pages/list_address_pages/listAddress.dart';
-import 'package:projeto_dispositivos_moveis/pages/list_card_pages/list_card_page.dart';
 import 'package:projeto_dispositivos_moveis/repositories/myAddress_repository.dart';
 import 'package:provider/provider.dart';
 
@@ -41,15 +40,6 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         drawer: const NavBar(),
         appBar: AppBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const ListCardPage(),
-            ),
-          ),
-          child: const Icon(Icons.add),
-        ),
         body: Stack(children: [
           Column(
             children: <Widget>[

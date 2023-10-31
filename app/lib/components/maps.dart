@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:projeto_dispositivos_moveis/controller/supermarket_controller.dart';
+import 'package:provider/provider.dart';
 
 class Maps extends StatefulWidget {
   const Maps({super.key});
@@ -35,15 +37,23 @@ class _MapsState extends State<Maps> {
     };
 
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        onMapCreated: _onMapCreated,
-        markers: markers,
-        initialCameraPosition: CameraPosition(
-          target: LatLng(lat, long),
-          zoom: 17.0,
-        ),
-        zoomControlsEnabled: false,
+      body: ChangeNotifierProvider<SupermercadoController>(
+        create: (context) => SupermercadoController(),
+        child: Builder(builder: (context) {
+          final local = context.watch<SupermercadoController>();
+
+          return GoogleMap(
+            initialCameraPosition: CameraPosition(
+              target: LatLng(local.lat, local.long),
+              zoom: 17,
+            ),
+            zoomControlsEnabled: true,
+            mapType: MapType.normal,
+            myLocationEnabled: true,
+            onMapCreated: local.onMapCreated,
+            markers: local.markers,
+          );
+        }),
       ),
     );
   }

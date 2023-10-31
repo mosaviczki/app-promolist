@@ -18,11 +18,11 @@ void main() async {
                 auth: context.read<AuthService>(),
               )),
       ChangeNotifierProvider(
-          create: (context) => MyAddressRepository(
+          create: (context) => AddressRepository(
                 auth: context.read<AuthService>(),
               )),
       ChangeNotifierProvider(
-          create: (context) => AddressRepository(
+          create: (context) => MyAddressRepository(
                 auth: context.read<AuthService>(),
               )),
     ],
