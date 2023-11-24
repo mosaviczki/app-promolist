@@ -16,17 +16,13 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   String nome = '';
   String email = '';
+  User? usuario = FirebaseAuth.instance.currentUser;
 
   carregarDados() {
-    // ignore: no_leading_underscores_for_local_identifiers
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    User? usuario = _auth.currentUser;
-    // ignore: avoid_function_literals_in_foreach_calls
-    
-        setState(() {
-          nome = usuario!.displayName!;
-          email = usuario.email!;
-        });
+    setState(() {
+      nome = usuario!.displayName!;
+      email = usuario!.email!;
+    });
   }
 
   @override
@@ -44,12 +40,17 @@ class _NavBarState extends State<NavBar> {
           UserAccountsDrawerHeader(
             accountName: Text(nome),
             accountEmail: Text(email),
-            currentAccountPicture: const ClipOval(
-              child: Icon(
-                Icons.person,
-                size: 70,
-              ),
-            ),
+            currentAccountPicture: usuario?.photoURL == null
+                ? const ClipOval(
+                    child: Icon(
+                      Icons.person,
+                      size: 70,
+                    ),
+                  )
+                : CircleAvatar(
+                    radius: 50,
+                    backgroundImage: Image.network(usuario!.photoURL!).image,
+                  ),
             decoration: const BoxDecoration(color: Colors.blue),
           ),
           ListTile(

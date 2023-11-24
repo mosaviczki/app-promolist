@@ -19,15 +19,14 @@ class _ProfilePageState extends State<ProfilePage> {
   String email = '';
   String telefone = '';
   String senha = '';
-
+  User? usuario = FirebaseAuth.instance.currentUser;
 
   carregarDados() {
-    User? usuario = FirebaseAuth.instance.currentUser;
     // ignore: avoid_function_literals_in_foreach_calls
     if (usuario != null) {
       setState(() {
-        nome = usuario.displayName!;
-        email = usuario.email!;
+        nome = usuario!.displayName!;
+        email = usuario!.email!;
       });
     }
   }
@@ -63,32 +62,68 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(
                 height: 5,
               ),
-              ListTile(
-                leading: const Icon(
-                  Icons.person,
-                  size: 80,
-                  color: Colors.black,
-                ),
-                title: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 25, bottom: 5),
-                      child: Text(nome),
-                    ),
-                  ],
-                ),
-                subtitle: Material(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 5),
-                        child: Text(email),
+              usuario?.photoURL != null
+                  ? ListTile(
+                      leading: SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage:
+                              Image.network(usuario!.photoURL!).image,
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-                contentPadding: const EdgeInsets.only(top: 5),
-              ),
+                      title: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 25, bottom: 5),
+                            child: Text(nome),
+                          ),
+                        ],
+                      ),
+                      subtitle: Material(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 5),
+                              child: Text(email),
+                            ),
+                          ],
+                        ),
+                      ),
+                      contentPadding: const EdgeInsets.only(top: 5),
+                    )
+                  : ListTile(
+                      leading: const CircleAvatar(
+                        radius: 50,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                      ),
+                      title: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 25, bottom: 5),
+                            child: Text(nome),
+                          ),
+                        ],
+                      ),
+                      subtitle: Material(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 5),
+                              child: Text(email),
+                            ),
+                          ],
+                        ),
+                      ),
+                      contentPadding: const EdgeInsets.only(top: 5),
+                    ),
               const SizedBox(
                 height: 30,
               ),

@@ -48,17 +48,6 @@ class AuthService extends ChangeNotifier {
     }
   }
 
-/*   Future<void> updateEmail(String email, String senha, String newEmail) async {
-    try {
-      var cred = EmailAuthProvider.credential(email: email, password: senha);
-      await usuario!.reauthenticateWithCredential(cred).then((value) {
-        usuario!.updateEmail(newEmail);
-      });
-      _getUser();
-    } on FirebaseAuthException catch (e) {
-      throw AuthException("Erro ao atualizar email!");
-    } */
-
     Future<void> updatePassword(
         String email, String oldPassword, String newPassword) async {
       try {
