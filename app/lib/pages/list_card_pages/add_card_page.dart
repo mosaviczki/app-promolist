@@ -27,6 +27,30 @@ class _AddCardPageState extends State<AddCardPage> {
   final _quantityController = TextEditingController(text: '1');
   List<ItemModel> listaItens = [];
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final dropValue = ValueNotifier('');
+  final compras = [
+    'Carne bovina (kg)',
+    'Carne suina (kg)',
+    'Carne de frango (kg)',
+    'Cerveja (12 un)',
+    'Whisky Escocês',
+    'Refrigerante 2L',
+    'Arroz (5kg)',
+    'Feijão (kg)',
+    'Macarrão (500g)',
+    'Açúcar (kg)',
+    'Sal Refinado (kg)',
+    'Óleo de soja',
+    'Detergente',
+    'Sabão em pó (800g)',
+    'Papel toalha (2 un.)',
+    'Amaciante (2L)',
+    'Batata (kg)',
+    'Tomate (kg)',
+    'Cebola (kg)',
+    'Alface (un)',
+    'Caixa de bombom'
+  ];
 
   void iniciaLista() {
     if (widget.card != null) {
@@ -121,15 +145,32 @@ class _AddCardPageState extends State<AddCardPage> {
               ),
               Row(
                 children: [
-                  SizedBox(
-                    width: 230,
-                    child: TextFormField(
-                      controller: _itemController,
-                      decoration: const InputDecoration(
-                        labelText: 'Adicione um item',
-                      ),
-                    ),
-                  ),
+                  /* _itemController */
+                  ValueListenableBuilder(
+                      valueListenable: dropValue,
+                      builder: (BuildContext context, String value, _) {
+                        return SizedBox(
+                          width: 230,
+                          child: DropdownButtonFormField<String>(
+                            isExpanded: true,
+                            icon: const Icon(Icons.shopping_cart),
+                            hint: const Text("Item"),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6)),
+                            ),
+                            value: (value.isEmpty) ? null : value,
+                            onChanged: (escolha) {
+                              dropValue.value = escolha.toString();
+                              _itemController.text = escolha!.toString();
+                            },
+                            items: compras
+                                .map((e) =>
+                                    DropdownMenuItem(value: e, child: Text(e)))
+                                .toList(),
+                          ),
+                        );
+                      }),
                   const SizedBox(
                     width: 10,
                   ),
